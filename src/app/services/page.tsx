@@ -3,6 +3,9 @@ import Link from "next/link";
 import { ServicesGrid } from "@/components/sections/ServicesGrid";
 import { PhoneCall, ShieldCheck, ArrowRight } from "lucide-react";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export default function ServicesPage() {
   return (
     <div className="space-y-0">

@@ -10,6 +10,9 @@ import { LeadCaptureForm } from "@/components/sections/LeadCaptureForm";
 import { CallCenterVector } from "@/components/illustrations/CallCenterVector";
 import { ArrowRight, ShieldCheck, PhoneCall, CheckCircle, Sparkles, TrendingUp, Users, Award, Clock } from "lucide-react";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export default async function HomePage() {
   const videos = await fetchPixabayVideos("call center corporate", 3);
   const heroVideo = videos[0]?.videos?.large?.url || "";
