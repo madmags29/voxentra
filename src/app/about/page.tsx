@@ -5,8 +5,7 @@ import { fetchPixabayImages } from "@/lib/pixabay";
 import { ShieldCheck, Award, Users, CheckCircle, ArrowRight, Building2, MapPin } from "lucide-react";
 
 export default async function AboutPage() {
-  const images = await fetchPixabayImages("business team office", 1);
-  const heroImage = images[0]?.largeImageURL || "";
+  const heroImage = "/images/hero-banner.png";
 
   return (
     <div className="space-y-0">

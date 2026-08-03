@@ -44,13 +44,39 @@ export async function fetchPixabayImages(query: string, perPage: number = 6): Pr
 
     if (!res.ok) {
       console.warn("Pixabay API HTTP error:", res.status, res.statusText);
-      return [];
+      return getFallbackImages();
     }
     const data = await res.json();
-    return data.hits || [];
+    if (!data.hits || data.hits.length === 0) {
+      return getFallbackImages();
+    }
+    return data.hits;
   } catch {
-    return [];
+    return getFallbackImages();
   }
+}
+
+function getFallbackImages(): PixabayImage[] {
+  return [
+    {
+      id: 1,
+      pageURL: "https://unsplash.com",
+      previewURL: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=500&auto=format&fit=crop",
+      webformatURL: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&auto=format&fit=crop",
+      largeImageURL: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&auto=format&fit=crop",
+      tags: "business team office",
+      user: "Unsplash"
+    },
+    {
+      id: 2,
+      pageURL: "https://unsplash.com",
+      previewURL: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=500&auto=format&fit=crop",
+      webformatURL: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&auto=format&fit=crop",
+      largeImageURL: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1600&auto=format&fit=crop",
+      tags: "corporate strategy",
+      user: "Unsplash"
+    }
+  ];
 }
 
 export async function fetchPixabayVideos(query: string, perPage: number = 3): Promise<PixabayVideo[]> {

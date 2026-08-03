@@ -22,7 +22,7 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     rating: 5,
     statsMetric: "+240%",
     statsLabel: "Enrollment Volume Increase",
-    avatar: "MV"
+    avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&auto=format&fit=crop&q=80"
   },
   {
     id: "2",
@@ -34,7 +34,7 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     rating: 5,
     statsMetric: "$4.2M",
     statsLabel: "New Contracted Debt / Mo",
-    avatar: "ER"
+    avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&auto=format&fit=crop&q=80"
   },
   {
     id: "3",
@@ -46,7 +46,7 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     rating: 5,
     statsMetric: "62%",
     statsLabel: "Dispatch Close Rate",
-    avatar: "DS"
+    avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&auto=format&fit=crop&q=80"
   },
   {
     id: "4",
@@ -58,6 +58,6 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     rating: 5,
     statsMetric: "38%",
     statsLabel: "Application Write Rate",
-    avatar: "SJ"
+    avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&auto=format&fit=crop&q=80"
   }
 ];

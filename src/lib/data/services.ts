@@ -29,7 +29,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     badge: "Highest Converting Lead Type",
     qualityGuarantee: "100% Verified Warm Buffer & 120s Guarantee",
     avgConversionRate: "28% - 42% Sales Conversion",
-    imageUrl: "https://pixabay.com/get/gbdeb49f30a1ddb3a9702e430b252f2a3dd82c045c1db6418b30c1bc601c840c16d31af9c61047cb804ecee16f7bdf9a7_640.jpg",
+    imageUrl: "https://images.unsplash.com/photo-1534536281715-e28d76689b4d?w=800&auto=format&fit=crop",
     features: [
       "100% Exclusive & Real-Time Call Routing",
       "Comprehensive 6-Point Qualification Screen",
@@ -86,7 +86,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     badge: "Direct Response Inbound",
     qualityGuarantee: "Real-Time IVR Filtering & Custom Call Caps",
     avgConversionRate: "25% - 38% Close Rate",
-    imageUrl: "https://pixabay.com/get/g7fa84cfe381622bc6faadc787d5fd41434afe30e34fb773cf95f67eabb632677689ed77cd1edc8bedc2cf4f7da6f11af_640.jpg",
+    imageUrl: "https://images.unsplash.com/photo-1520923642038-b4259acecbd7?w=800&auto=format&fit=crop",
     features: [
       "Targeted Search & Social Media Inbound Traffic",
       "Dynamic Toll-Free & Local Phone Number Provisioning",
@@ -139,7 +139,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     badge: "Dedicated Call Center",
     qualityGuarantee: "100% Quality Audited & Recorded Calls",
     avgConversionRate: "18% - 30% Qualified Appointment Rate",
-    imageUrl: "https://pixabay.com/get/g714aaae92491b06b9b509cf9035d8ca7a39d4c738b2c54d96f639c614e66124e972095637c7b8ff399dd506f9fe4c0fc_640.jpg",
+    imageUrl: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&auto=format&fit=crop",
     features: [
       "Native US & Bilingual Telemarketing Agents",
       "Custom Script Development & Objection Handling",
@@ -188,7 +188,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     badge: "High Volume Scale",
     qualityGuarantee: "Strict Publisher Vetting & Real-Time Scrubbing",
     avgConversionRate: "15% - 25% Conversion",
-    imageUrl: "https://pixabay.com/get/g53611a6201a9b3e22dbb97637314a435e5b619d6541e5257ffe3936e6fa46869a35a14325acf7f5ccc56cd7a567bf9ad_640.jpg",
+    imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop",
     features: [
       "Proprietary Publisher Vetting & Compliance Monitoring",
       "Real-Time Duplicate Checking & Fraud Detection",
@@ -237,7 +237,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     badge: "Top Insurance Vertical",
     qualityGuarantee: "Income & Subsidy Qualification Verified",
     avgConversionRate: "32% - 45% Enrolled Policy Rate",
-    imageUrl: "https://pixabay.com/get/gaff175883a87e2d8ac130dc5dee60ebbeae8c0cfc1b4d57f93a7a6a4ad9b3bc418989a8db421b59ca00717c5e4798858_640.jpg",
+    imageUrl: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&auto=format&fit=crop",
     features: [
       "Verified Subsidized ACA & Marketplace Eligibility",
       "Under-65 & Private Health Insurance Prospect Filters",
@@ -286,7 +286,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     badge: "Senior Market Leader",
     qualityGuarantee: "Bank Account & Decision Maker Verified",
     avgConversionRate: "30% - 40% Application Rate",
-    imageUrl: "https://pixabay.com/get/g473cace1933b24888e53016e5b1aef3f12c8cb7cedc003286407fa25907be6a68671abb2389ed2a80afa0f48fbc5c414_640.jpg",
+    imageUrl: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&auto=format&fit=crop",
     features: [
       "Target Seniors Aged 50 to 80",
       "Verification of Bank Account / Checking for Auto-Pay",
@@ -335,7 +335,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     badge: "High Consumer Demand",
     qualityGuarantee: "Currently Insured & Multi-Vehicle Filters",
     avgConversionRate: "22% - 35% Policy Write Rate",
-    imageUrl: "https://pixabay.com/get/g1627290c1f532a1e62e6f8b42e661e1040ce2fae395a81833f6969cdf7ad8c53f405b9becbbe39a49488d7637a007f13_640.jpg",
+    imageUrl: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=800&auto=format&fit=crop",
     features: [
       "Currently Insured vs Uninsured Prospect Segmentation",
       "Multi-Vehicle & Multi-Driver Filter Options",
@@ -384,7 +384,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     badge: "Legal & Advocacy Vertical",
     qualityGuarantee: "Medical & Work History Screened",
     avgConversionRate: "35% - 50% Retained Client Rate",
-    imageUrl: "https://pixabay.com/get/geb41a4b8fde1c71a5af468280470debb666737b141cbb44ef81eeeef5b75ad2e4e594715453d8866038c26cfc38a5cc0_640.jpg",
+    imageUrl: "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?w=800&auto=format&fit=crop",
     features: [
       "Under Doctor's Care & Severe Condition Verification",
       "Work Credit Eligibility (5 out of 10 years worked)",
@@ -433,7 +433,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     badge: "High ROI Finance Vertical",
     qualityGuarantee: "$10,000+ Unsecured Debt & Hardship Verified",
     avgConversionRate: "28% - 40% Enrolled Debt Rate",
-    imageUrl: "https://pixabay.com/get/g655b96d529f8ece6046f9ad703282975e8ef24856a5c4f4c7b3e863af04bec83611727b510f6c610d77ae14041882b1f_640.jpg",
+    imageUrl: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&auto=format&fit=crop",
     features: [
       "Minimum $10,000 Unsecured Debt Threshold",
       "Financial Hardship (Job loss, medical, divorce) Confirmed",
@@ -482,7 +482,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     badge: "Emergency High Ticket",
     qualityGuarantee: "Active Property Owner & Active Emergency Verified",
     avgConversionRate: "50% - 70% Dispatch Rate",
-    imageUrl: "https://pixabay.com/get/g342a26761b8be9add9896e7bcd783251e0307d3de7f167155209b848abfd784478bd3197cf82e5ee04dd27f026809bb7_640.jpg",
+    imageUrl: "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=800&auto=format&fit=crop",
     features: [
       "100% Inbound Phone Calls (No Cold Leads)",
       "Property Owner Status & Immediate Emergency Filter",
@@ -531,7 +531,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     badge: "Residential Contracting",
     qualityGuarantee: "Verified Property Ownership & Credit Tier",
     avgConversionRate: "30% - 45% Sit & Pitch Rate",
-    imageUrl: "https://pixabay.com/get/g09445507834eb29515eb7a7c58c0db887cbd38c8ee1d93b02df644fd01dbaa8ef202fbca366c6e4aae45160528c122e3_640.jpg",
+    imageUrl: "https://images.unsplash.com/photo-1613665813446-82a78c468a1d?w=800&auto=format&fit=crop",
     features: [
       "Single-Family Homeowner Status Confirmed",
       "Electric Bill / Project Budget Pre-Screened",

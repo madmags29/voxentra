@@ -4,8 +4,7 @@ import { fetchPixabayImages } from "@/lib/pixabay";
 import { Check, X, ShieldCheck } from "lucide-react";
 
 export const QualityComparison = async () => {
-  const images = await fetchPixabayImages("business data analytics technology", 1);
-  const bgImage = images[0]?.largeImageURL || "";
+  const bgImage = "/images/live-transfers-banner.png";
   const comparisonRows = [
     {
       feature: "Exclusivity Standard",

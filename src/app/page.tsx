@@ -18,9 +18,9 @@ export default async function HomePage() {
     <div className="space-y-0">
       {/* HERO SECTION */}
       <section className="relative pt-10 pb-20 md:py-24 overflow-hidden border-b border-slate-100">
-        {/* Background Video */}
-        {heroVideo && (
-          <div className="absolute inset-0 z-0">
+        {/* Background Image / Video Fallback */}
+        <div className="absolute inset-0 z-0">
+          {heroVideo ? (
             <video
               autoPlay
               loop
@@ -30,9 +30,15 @@ export default async function HomePage() {
             >
               <source src={heroVideo} type="video/mp4" />
             </video>
-            <div className="absolute inset-0 bg-gradient-to-br from-slate-50/95 via-white/80 to-brand-primary/10" />
-          </div>
-        )}
+          ) : (
+            <img
+              src="/images/hero-banner.png"
+              alt="Voxentra B2B Lead Operations"
+              className="w-full h-full object-cover opacity-15 filter grayscale"
+            />
+          )}
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-50/95 via-white/80 to-brand-primary/10" />
+        </div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">

@@ -36,8 +36,12 @@ export const TestimonialCarousel: React.FC = () => {
             {/* Left: Client Info & Metric */}
             <div className="md:col-span-4 bg-brand-dark text-white p-6 rounded-2xl flex flex-col justify-between h-full shadow-lg">
               <div>
-                <div className="w-12 h-12 rounded-xl bg-brand-primary text-white font-black text-lg flex items-center justify-center mb-4">
-                  {current.avatar}
+                <div className="w-14 h-14 rounded-xl overflow-hidden bg-brand-primary text-white font-black text-lg flex items-center justify-center mb-4 border border-brand-accent/30 shadow-md">
+                  {current.avatar.startsWith("http") ? (
+                    <img src={current.avatar} alt={current.clientName} className="w-full h-full object-cover" />
+                  ) : (
+                    current.avatar
+                  )}
                 </div>
                 <h4 className="text-lg font-bold text-white">{current.clientName}</h4>
                 <p className="text-xs text-brand-accent font-medium mt-0.5">{current.role}</p>
