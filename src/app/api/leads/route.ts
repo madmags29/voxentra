@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 import { sendLeadNotificationEmail } from "@/lib/email";
+import fs from "fs";
+import path from "path";
 
 export interface LeadItem {
   id: string;
@@ -17,8 +19,7 @@ export interface LeadItem {
   message?: string;
 }
 
-// Global in-memory lead store to guarantee persistent lead submissions in admin portal & public forms
-const inMemoryLeads: LeadItem[] = [
+const DEFAULT_LEADS: LeadItem[] = [
   {
     id: "VOX-849201",
     fullName: "Marcus Vance",
@@ -66,10 +67,36 @@ const inMemoryLeads: LeadItem[] = [
   }
 ];
 
+const LEADS_FILE = path.join(process.env.TMPDIR || "/tmp", "voxentra_leads.json");
+
+function getStoredLeads(): LeadItem[] {
+  try {
+    if (fs.existsSync(LEADS_FILE)) {
+      const data = fs.readFileSync(LEADS_FILE, "utf-8");
+      const parsed = JSON.parse(data);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        return parsed;
+      }
+    }
+  } catch (err) {
+    console.error("Error reading stored leads file:", err);
+  }
+  return DEFAULT_LEADS;
+}
+
+function saveStoredLeads(leads: LeadItem[]) {
+  try {
+    fs.writeFileSync(LEADS_FILE, JSON.stringify(leads, null, 2), "utf-8");
+  } catch (err) {
+    console.error("Error writing stored leads file:", err);
+  }
+}
+
 export async function GET() {
+  const leads = getStoredLeads();
   return NextResponse.json({
     success: true,
-    leads: inMemoryLeads,
+    leads,
   });
 }
 
@@ -105,8 +132,9 @@ export async function POST(req: Request) {
       message: message || "",
     };
 
-    // Store lead at the front of the list
-    inMemoryLeads.unshift(newLead);
+    const currentLeads = getStoredLeads();
+    const updatedLeads = [newLead, ...currentLeads];
+    saveStoredLeads(updatedLeads);
 
     console.log("New Lead Enquiry Recorded in System:", newLead);
 
@@ -132,7 +160,7 @@ export async function POST(req: Request) {
         success: true,
         message: "Lead inquiry submitted successfully.",
         lead: newLead,
-        leads: inMemoryLeads,
+        leads: updatedLeads,
       },
       { status: 201 }
     );

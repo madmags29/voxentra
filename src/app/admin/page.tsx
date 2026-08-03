@@ -91,12 +91,28 @@ export default function AdminPage() {
 
   const fetchLeads = async () => {
     try {
+      let apiLeads: AdminLead[] = [];
       const res = await fetch("/api/leads");
       if (res.ok) {
         const data = await res.json();
-        if (data.success && Array.isArray(data.leads) && data.leads.length > 0) {
-          setLeads(data.leads);
+        if (data.success && Array.isArray(data.leads)) {
+          apiLeads = data.leads;
         }
+      }
+
+      let localLeads: AdminLead[] = [];
+      try {
+        localLeads = JSON.parse(localStorage.getItem("voxentra_submitted_leads") || "[]");
+      } catch (e) {
+        console.error("Local leads parse error:", e);
+      }
+
+      // Merge API leads and local leads without duplicates by ID
+      const combined = [...localLeads, ...apiLeads];
+      const uniqueLeads = Array.from(new Map(combined.map((item) => [item.id, item])).values());
+
+      if (uniqueLeads.length > 0) {
+        setLeads(uniqueLeads);
       }
     } catch (err) {
       console.error("Error fetching live leads:", err);
@@ -144,7 +160,14 @@ export default function AdminPage() {
         body: JSON.stringify(newLead),
       });
       const data = await res.json();
-      if (res.ok && data.success) {
+      if (res.ok && data.success && data.lead) {
+        try {
+          const stored = JSON.parse(localStorage.getItem("voxentra_submitted_leads") || "[]");
+          localStorage.setItem("voxentra_submitted_leads", JSON.stringify([data.lead, ...stored]));
+        } catch (err) {
+          console.error("LocalStorage save error:", err);
+        }
+
         setToastMessage(`Lead ${data.lead.id} created successfully!`);
         setShowAddModal(false);
         setNewLead({

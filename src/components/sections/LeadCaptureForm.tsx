@@ -28,11 +28,16 @@ export const LeadCaptureForm: React.FC = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-      if (res.ok) {
-        setIsSubmitted(true);
-      } else {
-        setIsSubmitted(true); // Fallback for mock demo
+      const data = await res.json();
+      if (res.ok && data.lead) {
+        try {
+          const stored = JSON.parse(localStorage.getItem("voxentra_submitted_leads") || "[]");
+          localStorage.setItem("voxentra_submitted_leads", JSON.stringify([data.lead, ...stored]));
+        } catch (e) {
+          console.error("LocalStorage save error:", e);
+        }
       }
+      setIsSubmitted(true);
     } catch {
       setIsSubmitted(true);
     } finally {
