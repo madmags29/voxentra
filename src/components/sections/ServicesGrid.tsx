@@ -33,12 +33,10 @@ export const ServicesGrid: React.FC = () => {
               
               {service.imageUrl && (
                 <div className="relative w-full h-48 overflow-hidden bg-slate-100">
-                  <Image 
+                  <img 
                     src={service.imageUrl} 
                     alt={service.title} 
-                    fill 
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-80" />
                 </div>

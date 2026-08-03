@@ -188,7 +188,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     badge: "High Volume Scale",
     qualityGuarantee: "Strict Publisher Vetting & Real-Time Scrubbing",
     avgConversionRate: "15% - 25% Conversion",
-    imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop",
+    imageUrl: "/images/services/affiliate-network.png",
     features: [
       "Proprietary Publisher Vetting & Compliance Monitoring",
       "Real-Time Duplicate Checking & Fraud Detection",
@@ -237,7 +237,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     badge: "Top Insurance Vertical",
     qualityGuarantee: "Income & Subsidy Qualification Verified",
     avgConversionRate: "32% - 45% Enrolled Policy Rate",
-    imageUrl: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&auto=format&fit=crop",
+    imageUrl: "/images/services/aca-health.png",
     features: [
       "Verified Subsidized ACA & Marketplace Eligibility",
       "Under-65 & Private Health Insurance Prospect Filters",
@@ -335,7 +335,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     badge: "High Consumer Demand",
     qualityGuarantee: "Currently Insured & Multi-Vehicle Filters",
     avgConversionRate: "22% - 35% Policy Write Rate",
-    imageUrl: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=800&auto=format&fit=crop",
+    imageUrl: "/images/services/auto-insurance.png",
     features: [
       "Currently Insured vs Uninsured Prospect Segmentation",
       "Multi-Vehicle & Multi-Driver Filter Options",
@@ -384,7 +384,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     badge: "Legal & Advocacy Vertical",
     qualityGuarantee: "Medical & Work History Screened",
     avgConversionRate: "35% - 50% Retained Client Rate",
-    imageUrl: "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?w=800&auto=format&fit=crop",
+    imageUrl: "/images/services/ssdi-disability.png",
     features: [
       "Under Doctor's Care & Severe Condition Verification",
       "Work Credit Eligibility (5 out of 10 years worked)",
@@ -433,7 +433,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     badge: "High ROI Finance Vertical",
     qualityGuarantee: "$10,000+ Unsecured Debt & Hardship Verified",
     avgConversionRate: "28% - 40% Enrolled Debt Rate",
-    imageUrl: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&auto=format&fit=crop",
+    imageUrl: "/images/services/debt-settlement.png",
     features: [
       "Minimum $10,000 Unsecured Debt Threshold",
       "Financial Hardship (Job loss, medical, divorce) Confirmed",
@@ -531,7 +531,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     badge: "Residential Contracting",
     qualityGuarantee: "Verified Property Ownership & Credit Tier",
     avgConversionRate: "30% - 45% Sit & Pitch Rate",
-    imageUrl: "https://images.unsplash.com/photo-1613665813446-82a78c468a1d?w=800&auto=format&fit=crop",
+    imageUrl: "/images/services/home-services.png",
     features: [
       "Single-Family Homeowner Status Confirmed",
       "Electric Bill / Project Budget Pre-Screened",
