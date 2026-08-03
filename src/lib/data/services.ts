@@ -29,7 +29,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     badge: "Highest Converting Lead Type",
     qualityGuarantee: "100% Verified Warm Buffer & 120s Guarantee",
     avgConversionRate: "28% - 42% Sales Conversion",
-    imageUrl: "https://images.unsplash.com/photo-1534536281715-e28d76689b4d?w=800&auto=format&fit=crop",
+    imageUrl: "/images/services/live-transfers.png",
     features: [
       "100% Exclusive & Real-Time Call Routing",
       "Comprehensive 6-Point Qualification Screen",
@@ -86,7 +86,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     badge: "Direct Response Inbound",
     qualityGuarantee: "Real-Time IVR Filtering & Custom Call Caps",
     avgConversionRate: "25% - 38% Close Rate",
-    imageUrl: "https://images.unsplash.com/photo-1520923642038-b4259acecbd7?w=800&auto=format&fit=crop",
+    imageUrl: "/images/services/inbound-calls.png",
     features: [
       "Targeted Search & Social Media Inbound Traffic",
       "Dynamic Toll-Free & Local Phone Number Provisioning",
@@ -139,7 +139,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     badge: "Dedicated Call Center",
     qualityGuarantee: "100% Quality Audited & Recorded Calls",
     avgConversionRate: "18% - 30% Qualified Appointment Rate",
-    imageUrl: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&auto=format&fit=crop",
+    imageUrl: "/images/services/telemarketing.png",
     features: [
       "Native US & Bilingual Telemarketing Agents",
       "Custom Script Development & Objection Handling",
@@ -286,7 +286,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     badge: "Senior Market Leader",
     qualityGuarantee: "Bank Account & Decision Maker Verified",
     avgConversionRate: "30% - 40% Application Rate",
-    imageUrl: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&auto=format&fit=crop",
+    imageUrl: "/images/services/final-expense.png",
     features: [
       "Target Seniors Aged 50 to 80",
       "Verification of Bank Account / Checking for Auto-Pay",
@@ -482,7 +482,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     badge: "Emergency High Ticket",
     qualityGuarantee: "Active Property Owner & Active Emergency Verified",
     avgConversionRate: "50% - 70% Dispatch Rate",
-    imageUrl: "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=800&auto=format&fit=crop",
+    imageUrl: "/images/services/water-damage.png",
     features: [
       "100% Inbound Phone Calls (No Cold Leads)",
       "Property Owner Status & Immediate Emergency Filter",
