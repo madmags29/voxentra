@@ -138,22 +138,23 @@ export async function POST(req: Request) {
 
     console.log("New Lead Enquiry Recorded in System:", newLead);
 
-    // Dispatch real SMTP email notification in background (non-blocking)
-    sendLeadNotificationEmail({
-      leadId: newLead.id,
-      fullName: newLead.fullName,
-      businessEmail: newLead.email,
-      phoneNumber: newLead.phone,
-      company: newLead.company,
-      industry: newLead.industry,
-      leadType: newLead.leadType,
-      monthlyRequirement: newLead.volume,
-      message: newLead.message,
-    }).then(() => {
+    // Await SMTP email notification so Vercel keeps container active until email is sent
+    try {
+      await sendLeadNotificationEmail({
+        leadId: newLead.id,
+        fullName: newLead.fullName,
+        businessEmail: newLead.email,
+        phoneNumber: newLead.phone,
+        company: newLead.company,
+        industry: newLead.industry,
+        leadType: newLead.leadType,
+        monthlyRequirement: newLead.volume,
+        message: newLead.message,
+      });
       console.log("SMTP Email successfully sent to hello@voxentraglobal.com");
-    }).catch((emailErr) => {
-      console.error("SMTP Email Dispatch Error (non-blocking):", emailErr);
-    });
+    } catch (emailErr) {
+      console.error("SMTP Email Dispatch Error:", emailErr);
+    }
 
     return NextResponse.json(
       {
