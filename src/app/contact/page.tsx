@@ -33,7 +33,7 @@ export default function ContactPage() {
                     <MapPin className="w-5 h-5 text-brand-primary flex-shrink-0 mt-1" />
                     <div>
                       <p className="font-bold text-slate-900">Voxentra Global / Solutions</p>
-                      <p className="text-slate-600">H. No. 184, Nainagarh, Nagra</p>
+                      <p className="text-slate-600">739, Isai Tola, Kamal Singh Colony</p>
                       <p className="text-slate-600">Jhansi (U.P.) 284003, India</p>
                     </div>
                   </div>

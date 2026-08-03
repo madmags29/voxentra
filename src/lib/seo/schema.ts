@@ -24,7 +24,7 @@ export function generateOrganizationSchema() {
     ],
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "H. No. 184, Nainagarh, Nagra",
+      "streetAddress": "739, Isai Tola, Kamal Singh Colony",
       "addressLocality": "Jhansi",
       "addressRegion": "U.P.",
       "postalCode": "284003",
