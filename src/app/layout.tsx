@@ -22,11 +22,11 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Voxentra Solutions" }],
   creator: "Voxentra Solutions",
-  metadataBase: new URL("https://voxentra.com"),
+  metadataBase: new URL("https://www.voxentraglobal.com"),
   openGraph: {
     title: "Voxentra Solutions | Connecting Businesses with High-Intent Customers",
     description: "Premium Live Transfers & Exclusive Leads Across the USA. 100% TCPA 1-to-1 Consent Verified.",
-    url: "https://voxentra.com",
+    url: "https://www.voxentraglobal.com",
     siteName: "Voxentra Solutions",
     locale: "en_US",
     type: "website",

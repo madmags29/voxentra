@@ -414,7 +414,7 @@ export default function AdminPage() {
               <h3 className="text-lg font-bold text-white">API Keys & CRM Webhooks</h3>
               <div className="p-4 bg-slate-900 rounded-xl border border-slate-800 space-y-2">
                 <span className="text-xs text-slate-400 font-mono block">Production API Endpoint:</span>
-                <code className="text-xs text-brand-accent font-mono block">https://voxentra.com/api/leads</code>
+                <code className="text-xs text-brand-accent font-mono block">https://www.voxentraglobal.com/api/leads</code>
                 <span className="text-xs text-slate-400 font-mono block mt-2">Live Webhook Secret:</span>
                 <code className="text-xs text-emerald-400 font-mono block">vx_live_9f82a174092b7c019a</code>
               </div>

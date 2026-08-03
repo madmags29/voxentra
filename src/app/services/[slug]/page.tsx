@@ -27,7 +27,7 @@ export default async function DynamicServicePage({ params }: ServicePageProps) {
   const serviceSchema = generateServiceSchema(
     service.title,
     service.shortDescription,
-    `https://voxentra.com/services/${service.slug}`
+    `https://www.voxentraglobal.com/services/${service.slug}`
   );
   const faqSchema = generateFAQSchema(service.faq);
 

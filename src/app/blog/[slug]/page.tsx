@@ -36,7 +36,7 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
     "publisher": {
       "@type": "Organization",
       "name": "Voxentra Solutions",
-      "logo": "https://voxentra.com/logo.svg",
+      "logo": "https://www.voxentraglobal.com/images/voxentra-logo-light.svg",
     },
     "datePublished": post.publishedAt,
   };
