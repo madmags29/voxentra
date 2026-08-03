@@ -3,7 +3,7 @@ import Script from "next/script";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { generateOrganizationSchema } from "@/lib/seo/schema";
+import { generateOrganizationSchema, generateWebSiteSearchSchema } from "@/lib/seo/schema";
 
 export const metadata: Metadata = {
   title: "Voxentra Solutions | Premium Live Transfers & Exclusive B2B Leads Across USA",
@@ -58,14 +58,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const orgSchema = generateOrganizationSchema();
+  const searchSchema = generateWebSiteSearchSchema();
 
   return (
     <html lang="en" className="scroll-smooth">
       <head>
         <meta name="google-site-verification" content="hEEB4Un9O7U5Uu9lz9Hs_4KWL2w8Am-sgP-38JLOFRU" />
+        <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Knowledge Specification" />
+        <link rel="author" href="/llms.txt" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(searchSchema) }}
         />
         {/* Google Analytics (gtag.js) */}
         <Script

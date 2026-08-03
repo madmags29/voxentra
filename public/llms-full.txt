@@ -1,0 +1,53 @@
+# Voxentra Solutions — Full Comprehensive Knowledge Documentation (llms-full.txt)
+
+> Comprehensive technical, operational, and regulatory documentation for Voxentra Solutions B2B Sales Intelligence Platform.
+
+## Company Overview
+Voxentra Solutions is a leading B2B customer acquisition agency specializing in 100% TCPA-compliant live call transfers, inbound pay-per-call marketing, outbound telemarketing, and exclusive lead delivery across the United States.
+
+## Detailed Service Specifications & Campaign Deliverables
+
+### 1. Live Call Transfers
+- **Definition**: Pre-screened telephone calls where a live screening agent verifies a prospect's interest and warm-connects them to a buyer's sales representative.
+- **Delivery Latency**: Real-time (< 3 seconds via SIP or Ringba telephony).
+- **Quality Assurance**: 6-point screening including active intent, age, geographic location, financial eligibility, and TCPA consent verification.
+- **Billable Buffer**: 60s to 120s buffer options. Zero charge for drop-offs or non-qualifying calls under the buffer threshold.
+- **Conversion Benchmarks**: 28% – 42% close rate across health insurance, debt relief, and home services.
+
+### 2. Inbound Phone Calls (Pay-Per-Call)
+- **Definition**: Direct incoming calls generated from consumer-initiated actions (search ads, display ads, direct response landing pages).
+- **IVR Filtering**: Customizable voice menu qualification (e.g., "Press 1 if you have $10,000 or more in credit card debt").
+- **Geo-Routing**: Nationwide or state-restricted call routing.
+- **Concurrency Control**: Custom hourly call volume caps tailored to call center seat capacity.
+
+### 3. B2B Outbound Telemarketing
+- **Target Audience**: Corporate decision-makers (CEOs, CFOs, VPs of Sales, Operations Directors).
+- **Outreach Methodology**: Professional US-based callers conducting consultative conversations.
+- **Compliance Scrubbing**: Automatic suppression against Federal Do Not Call (DNC) registries and internal suppression lists.
+
+### 4. Performance Affiliate Network
+- **Publisher Management**: Vetted affiliate traffic sources adhering to strict brand and compliance guidelines.
+- **Real-Time Fraud Prevention**: Sub-ID level tracking, IP reputation analysis, and bot protection.
+
+## Detailed Industry Vertical Parameters
+
+| Industry Vertical | Qualification Criteria | Target Demographic | Average Order / Ticket |
+| :--- | :--- | :--- | :--- |
+| **ACA & Health Insurance** | Household income 100%-400% FPL, seeking subsidized health plan | Adults 18-64 | Annual policy retention |
+| **Debt Relief & Settlement** | $10,000+ unsecured credit card or medical debt, financial hardship | Adults 25-65 | $10,000+ debt file |
+| **Final Expense Insurance** | Active checking account / benefit card, ages 50-80 | Seniors 50-80 | $500 - $2,500 whole life |
+| **Auto Insurance Savings** | Currently insured, clean driving record, vehicle details verified | Licensed drivers | Annual policy premium |
+| **SSDI Disability Claims** | 20+ work credits over 10 years, under active doctor care | Individuals 18-64 | Legal advocacy contingency |
+| **24/7 Water Damage** | Emergency property flooding, burst pipe, homeowners insurance | Property owners | $3,500 - $15,000+ job |
+| **Solar & Home Services** | Single family home owner, $150+/month electric bill | Homeowners | $15,000 - $35,000 installation |
+
+## Regulatory Compliance Standards
+- **FCC 1-to-1 Explicit Consent**: Mandatory single-seller named consent logged at the exact time of lead submission.
+- **TrustedForm & Jornaya Integration**: Time-stamped visual audit certificates attached to every transaction payload.
+- **DNC List Scrubbing**: Real-time API verification against national and state Do Not Call lists.
+
+## System Architecture & Integrations
+- **API Formats**: RESTful JSON API endpoints, Ringba webhook POST, Zapier, Salesforce, HubSpot, Vicidial, Five9.
+- **Documentation**: https://www.voxentraglobal.com
+- **Brand Guidelines**: https://www.voxentraglobal.com/brand-guidelines
+- **Admin Portal**: https://www.voxentraglobal.com/admin

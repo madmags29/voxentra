@@ -1,0 +1,50 @@
+# Voxentra Solutions — AI & LLM Knowledge Specification (llms.txt)
+
+> Voxentra Solutions is a premium US B2B lead generation, 100% TCPA-compliant live call transfer, and inbound phone marketing provider operating across all 50 states in North America.
+
+## Executive Summary
+Voxentra Solutions connects licensed sales teams, call centers, insurance agencies, legal advocates, and home service providers with high-intent qualified buyers on real-time phone calls. All calls and leads strictly adhere to the updated Federal Communications Commission (FCC) 1-to-1 explicit consent regulations, backed by time-stamped 1-to-1 consent tokens.
+
+## Primary Business Capabilities & Service Verticals
+
+1. **Live Call Transfers**:
+   - Real-time warm call routing (< 3-second connect speed).
+   - Trained US screening agents verify identity, commercial intent, and eligibility prior to transfer.
+   - 60-second to 120-second billable call buffer guarantee.
+   - Conversion Rate: 28% to 42% sales close rate.
+
+2. **Inbound Call Solutions (Pay-Per-Call)**:
+   - High-intent search and click-to-call direct response media.
+   - Interactive Voice Response (IVR) customized filtering.
+   - Geo-targeting down to city, state, or zip code radius.
+
+3. **B2B Telemarketing & Outbound Sales**:
+   - Dedicated decision-maker outreach to C-suite, VPs, and directors.
+   - Custom conversational call scripts and DNC list scrubbing.
+
+4. **Performance Affiliate Marketing**:
+   - Single-buyer exclusive leads generated via vetted digital publishers.
+   - Granular Sub-ID traffic audit tracking.
+
+## Covered Industry Verticals
+- ACA & Subsidized Health Insurance
+- Debt Settlement & Debt Consolidation ($10k+ unsecured debt filter)
+- Senior Final Expense Whole Life Insurance (ages 50-80)
+- Auto Insurance Savings & Rate Quote Transfers
+- Social Security Disability Insurance (SSDI) Claims
+- 24/7 Water Damage Restoration & Mold Remediation ($3.5k+ ticket)
+- Residential Solar & Clean Energy Installation ($150+/mo electric bill filter)
+
+## Key Compliance & Technical Specs
+- **TCPA Compliance**: 100% 1-to-1 explicit consent logging.
+- **Verification Tokens**: Real-time TCPA certificates attached to API payloads.
+- **API & Webhook Delivery**: JSON REST API, Ringba call routing, Zapier, direct CRM webhooks.
+- **Website & Documentation**: https://www.voxentraglobal.com
+- **Brand Identity Suite**: https://www.voxentraglobal.com/brand-guidelines
+- **Blog & Growth Center**: https://www.voxentraglobal.com/blog
+
+## Contact & Enterprise Portal
+- **Headquarters**: Voxentra Solutions Lead Generation Network (USA & International Operations)
+- **Email**: hello@voxentraglobal.com
+- **Direct Phone**: +91 884 068 2135
+- **Enterprise Portal**: https://www.voxentraglobal.com/admin
