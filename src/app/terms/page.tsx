@@ -20,6 +20,16 @@ export default function TermsPage() {
         <p className="text-sm text-slate-600 leading-relaxed">
           Warm live call transfers include a standard 60-second to 120-second duration buffer depending on campaign specifications. Calls disconnecting prior to the agreed buffer duration are eligible for unbilled status or replacement credit.
         </p>
+
+        <h2 className="text-xl font-bold text-slate-800 mt-8 mb-2">3. Service Disclaimer</h2>
+        <div className="p-5 bg-slate-50 border-l-4 border-brand-primary rounded-r-xl space-y-3 text-sm text-slate-700 leading-relaxed my-4">
+          <p className="font-medium text-slate-800">
+            Our website operates as a free referral service connecting consumers with local service providers and financial/insurance specialists. We are not a direct service provider, insurance carrier, contractor, or financial institution.
+          </p>
+          <p className="text-slate-700">
+            <strong className="text-slate-900 font-bold">No Guarantees:</strong> We do not guarantee the quotes, rates, or quality of work provided by the independent contractors or service professionals you are matched with. All agreements are solely between you and the respective provider.
+          </p>
+        </div>
       </div>
     </div>
   );
