@@ -1,0 +1,24 @@
+<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="voxGradientV" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#0F4C81" />
+      <stop offset="50%" stopColor="#0284C7" />
+      <stop offset="100%" stopColor="#38BDF8" />
+    </linearGradient>
+    <linearGradient id="voxGradientGrowth" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stopColor="#10B981" />
+      <stop offset="100%" stopColor="#34D399" />
+    </linearGradient>
+  </defs>
+
+  <path d="M18 24 L42 76 C43.5 79.5 47.5 81 50 81 C52.5 81 56.5 79.5 58 76 L82 24" stroke="url(#voxGradientV)" stroke-width="10" stroke-linecap="round"/>
+  <path d="M26 34 L45 70 C47 74 53 74 55 70 L74 34" stroke="url(#voxGradientGrowth)" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- Nodes -->
+  <circle cx="18" cy="24" r="5" fill="#0F4C81" />
+  <circle cx="82" cy="24" r="5" fill="#38BDF8" />
+  <circle cx="50" cy="80" r="6" fill="#10B981" />
+
+  <path d="M38 42 L50 28 L62 42" stroke="url(#voxGradientGrowth)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="50" cy="28" r="4" fill="#10B981" />
+</svg>

@@ -47,6 +47,14 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  icons: {
+    icon: [
+      { url: "/images/voxentra-icon.svg", type: "image/svg+xml" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/images/voxentra-icon.svg",
+    apple: "/images/voxentra-icon.svg",
+  },
   verification: {
     google: "hEEB4Un9O7U5Uu9lz9Hs_4KWL2w8Am-sgP-38JLOFRU",
   },
@@ -64,6 +72,9 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <head>
         <meta name="google-site-verification" content="hEEB4Un9O7U5Uu9lz9Hs_4KWL2w8Am-sgP-38JLOFRU" />
+        <link rel="icon" type="image/svg+xml" href="/images/voxentra-icon.svg" />
+        <link rel="shortcut icon" href="/images/voxentra-icon.svg" />
+        <link rel="apple-touch-icon" href="/images/voxentra-icon.svg" />
         <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Knowledge Specification" />
         <link rel="author" href="/llms.txt" />
         <script
