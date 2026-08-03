@@ -69,7 +69,7 @@ export default function RootLayout({
   const searchSchema = generateWebSiteSearchSchema();
 
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
         <meta name="google-site-verification" content="hEEB4Un9O7U5Uu9lz9Hs_4KWL2w8Am-sgP-38JLOFRU" />
         <link rel="icon" type="image/svg+xml" href="/images/voxentra-icon.svg" />
@@ -100,7 +100,7 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body className="min-h-screen flex flex-col bg-white text-slate-900 selection:bg-brand-primary selection:text-white">
+      <body className="min-h-screen flex flex-col bg-white text-slate-900 selection:bg-brand-primary selection:text-white" suppressHydrationWarning>
         <Header />
         <main className="flex-grow pt-24 md:pt-28">{children}</main>
         <Footer />

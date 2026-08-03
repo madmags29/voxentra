@@ -14,8 +14,13 @@ export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 export default async function HomePage() {
-  const videos = await fetchPixabayVideos("call center corporate", 3);
-  const heroVideo = videos[0]?.videos?.large?.url || "";
+  let heroVideo = "";
+  try {
+    const videos = await fetchPixabayVideos("call center corporate", 3);
+    heroVideo = videos[0]?.videos?.large?.url || "";
+  } catch (error) {
+    console.error("Hero video fetch error:", error);
+  }
 
   return (
     <div className="space-y-0">
