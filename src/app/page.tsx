@@ -55,18 +55,18 @@ export default async function HomePage() {
               {/* Badge */}
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-primary/10 border border-brand-primary/20 text-brand-primary text-xs font-bold uppercase tracking-wider">
                 <Sparkles className="w-4 h-4 text-brand-accent animate-pulse" />
-                <span>#1 US B2B Live Transfer & Telemarketing Network</span>
+                <span>#1 US B2B Inbound Call & Exclusive Lead Network</span>
               </div>
 
               {/* Main Headline */}
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-brand-dark tracking-tight leading-[1.1] font-heading">
-                Premium Live Transfers & Exclusive Leads That{" "}
+                High-Intent Inbound Calls & Exclusive Leads That{" "}
                 <span className="gradient-text">Grow Your Business</span>
               </h1>
 
               {/* Subheading */}
               <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-normal">
-                Helping businesses across the United States connect with qualified, high-intent customers through 100% TCPA-compliant live call transfers and performance-driven telemarketing.
+                Helping businesses across the United States connect with qualified, high-intent customers through 100% TCPA-compliant inbound phone calls and performance-driven lead generation.
               </p>
 
               {/* CTA Buttons */}

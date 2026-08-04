@@ -19,63 +19,6 @@ export interface ServiceDetail {
 
 export const SERVICES_DATA: ServiceDetail[] = [
   {
-    id: "live-transfers",
-    slug: "live-transfers",
-    title: "Live Call Transfers",
-    shortDescription: "Pre-screened, high-intent consumer prospects transferred directly to your sales team in real-time.",
-    heroHeadline: "Exclusive 100% TCPA-Compliant Live Call Transfers Across USA",
-    heroSubheadline: "Connect instantly with active, qualified buyers while they are on the line. Zero dial time, zero drop-offs, maximum sales close rates.",
-    iconName: "PhoneCall",
-    badge: "Highest Converting Lead Type",
-    qualityGuarantee: "100% Verified Warm Buffer & 120s Guarantee",
-    avgConversionRate: "28% - 42% Sales Conversion",
-    imageUrl: "/images/services/live-transfers.png",
-    features: [
-      "100% Exclusive & Real-Time Call Routing",
-      "Comprehensive 6-Point Qualification Screen",
-      "TCPA Consent & 1-to-1 Certificate Logged",
-      "Custom Buffer Time Options (60s - 120s)",
-      "Instant Whisper Info Before Transfer Connect",
-      "Full API & CRM Integration with Live Call Logs"
-    ],
-    benefits: [
-      {
-        title: "Zero Prospecting Overhead",
-        description: "Your agents spend 100% of their day speaking directly with buyers who meet your exact filters, avoiding gatekeepers and voicemail."
-      },
-      {
-        title: "Hyper-Screened Intent",
-        description: "Every call undergoes live US agent screening to confirm identity, intent, eligibility, and desire for an immediate consultation."
-      },
-      {
-        title: "Scalable Daily Volume",
-        description: "From 20 transfers a day to 2,000+ per day, our national telemarketing network scales with your sales capacity seamlessly."
-      }
-    ],
-    processSteps: [
-      { step: "01", title: "Target Criteria Setup", desc: "We map your exact filters: age, location, income, credit, policy state." },
-      { step: "02", title: "Omnichannel Prospect Screening", desc: "Our telemarketing agents engage in-bound and outbound inquiries." },
-      { step: "03", title: "Verification & Compliance Check", desc: "TCPA certificates and custom qualification criteria are verified." },
-      { step: "04", title: "Live Warm Transfer", desc: "Prospect is connected directly to your licensed agent with a live whisper brief." }
-    ],
-    leadSpecs: [
-      { label: "Delivery Speed", value: "Real-time (< 3 seconds)" },
-      { label: "Exclusive", value: "100% Exclusive to 1 Buyer" },
-      { label: "TCPA Compliance", value: "100% 1-to-1 Explicit Consent" },
-      { label: "Min Order", value: "50 Transfers / Campaign" }
-    ],
-    faq: [
-      {
-        q: "What is a live call transfer?",
-        a: "A live transfer occurs when our call center pre-screens an interested consumer, confirms their eligibility, and warm-connects the consumer directly to your sales representative on the phone in real time."
-      },
-      {
-        q: "How do you guarantee TCPA compliance?",
-        a: "Every lead captured includes a time-stamped 1-to-1 explicit consent certificate verifying clear, affirmative TCPA consent prior to any call interaction."
-      }
-    ]
-  },
-  {
     id: "inbound-calls",
     slug: "inbound-calls",
     title: "Inbound Call Solutions",
@@ -123,57 +66,8 @@ export const SERVICES_DATA: ServiceDetail[] = [
     ],
     faq: [
       {
-        q: "What is the difference between Live Transfers and Inbound Calls?",
-        a: "Inbound calls are initiated directly by consumers clicking an ad and dialing a phone number. Live transfers are calls initiated or qualified by our telemarketing agents and then warm-transferred to your team."
-      }
-    ]
-  },
-  {
-    id: "telemarketing",
-    slug: "telemarketing",
-    title: "Outbound Telemarketing",
-    shortDescription: "Dedicated US-managed telemarketing campaigns delivering qualified appointments, surveys, and live leads.",
-    heroHeadline: "Enterprise Outbound Telemarketing & Sales Prospecting",
-    heroSubheadline: "Supercharge your pipeline with professional telemarketing specialists trained specifically in your industry vertical.",
-    iconName: "Headphones",
-    badge: "Dedicated Call Center",
-    qualityGuarantee: "100% Quality Audited & Recorded Calls",
-    avgConversionRate: "18% - 30% Qualified Appointment Rate",
-    imageUrl: "/images/services/telemarketing.png",
-    features: [
-      "Native US & Bilingual Telemarketing Agents",
-      "Custom Script Development & Objection Handling",
-      "DNC (Do Not Call) & State TCPA Compliance Audit",
-      "Daily Lead Injection & CRM Synchronization",
-      "Full Call Recordings & Quality Assurance Scorecards",
-      "Scalable Seat Capacities (5 to 150+ Agents)"
-    ],
-    benefits: [
-      {
-        title: "Dedicated Brand Reps",
-        description: "Our agents act as a seamless extension of your company, adhering strictly to your brand tone, guidelines, and compliance rules."
-      },
-      {
-        title: "Turnkey Campaign Management",
-        description: "We handle recruiting, training, script optimization, compliance monitoring, and daily performance reporting."
-      }
-    ],
-    processSteps: [
-      { step: "01", title: "Script & Persona Design", desc: "We co-create objection scripts and target buyer personas." },
-      { step: "02", title: "Agent Onboarding", desc: "Dedicated agents complete rigorous product training." },
-      { step: "03", title: "Outbound Dialing", desc: "State-of-the-art predictive dialer engages qualified lists." },
-      { step: "04", title: "Lead Hand-off", desc: "Qualified appointments and warm leads are synced directly into your CRM." }
-    ],
-    leadSpecs: [
-      { label: "Agent Type", value: "Dedicated / Shared US B2B Specialists" },
-      { label: "Quality Audit", value: "100% Monitored & Scored" },
-      { label: "Compliance", value: "Federal DNC & State Compliant" },
-      { label: "CRM Sync", value: "HubSpot, Salesforce, Zoho" }
-    ],
-    faq: [
-      {
-        q: "Can Voxentra integrate with our internal CRM?",
-        a: "Yes! We support native integrations with Salesforce, HubSpot, Close, PipeDrive, RingCentral, and custom webhooks."
+        q: "What are Inbound Call Solutions?",
+        a: "Inbound calls are initiated directly by consumers clicking an ad and dialing a dedicated phone number to reach your sales agents."
       }
     ]
   },

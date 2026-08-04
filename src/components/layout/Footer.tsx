@@ -33,18 +33,8 @@ export const Footer: React.FC = () => {
             </h4>
             <ul className="space-y-2.5 text-sm text-slate-300">
               <li>
-                <Link href="/services/live-transfers" className="hover:text-brand-accent transition">
-                  Live Call Transfers
-                </Link>
-              </li>
-              <li>
                 <Link href="/services/inbound-calls" className="hover:text-brand-accent transition">
                   Inbound Call Solutions
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/telemarketing" className="hover:text-brand-accent transition">
-                  Outbound Telemarketing
                 </Link>
               </li>
               <li>

@@ -228,7 +228,7 @@ export const Header: React.FC = () => {
             onClick={() => setIsMobileMenuOpen(false)}
             className={`block py-2 text-base font-semibold ${pathname.startsWith("/services") ? "text-brand-primary" : "text-slate-800"}`}
           >
-            All Services (11 Verticals)
+            All Services (9 Verticals)
           </Link>
           <Link
             href="/industries"

@@ -84,7 +84,7 @@ export default function AdminPage() {
     email: "",
     phone: "",
     industry: "ACA & Health Insurance",
-    leadType: "Live Call Transfers",
+    leadType: "Inbound Phone Calls",
     volume: "100 - 500 Leads / Mo",
     message: "",
   });
@@ -626,9 +626,7 @@ export default function AdminPage() {
                         onChange={(e) => setNewLead({ ...newLead, leadType: e.target.value })}
                         className="w-full p-2.5 bg-slate-950 border border-slate-800 rounded-xl text-white outline-none focus:border-brand-accent"
                       >
-                        <option value="Live Call Transfers">Live Call Transfers</option>
                         <option value="Inbound Phone Calls">Inbound Phone Calls</option>
-                        <option value="Outbound Telemarketing">Outbound Telemarketing</option>
                         <option value="Exclusive Digital Leads">Exclusive Digital Leads</option>
                       </select>
                     </div>

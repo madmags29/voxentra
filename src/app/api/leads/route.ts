@@ -123,7 +123,7 @@ export async function POST(req: Request) {
       phone: finalPhone,
       company: company || "N/A",
       industry: industry || "General Inquiry",
-      leadType: leadType || "Live Call Transfers",
+      leadType: leadType || "Inbound Phone Calls",
       volume: monthlyRequirement || volume || "100 - 500 Leads / Mo",
       status: "NEW",
       consentToken: `TCPA-${randomHex}`,
