@@ -12,7 +12,7 @@ export const Footer: React.FC = () => {
           <div className="lg:col-span-2 space-y-4">
             <Logo variant="white" size="lg" />
             <p className="text-sm text-slate-300 leading-relaxed max-w-sm">
-              Connecting Businesses with High-Intent Customers across the United States through 100% TCPA-compliant live call transfers, inbound campaigns, and exclusive leads.
+              Connecting Businesses with High-Intent Customers across the United States through 100% TCPA-compliant inbound call campaigns, pay-per-call solutions, and exclusive verified leads.
             </p>
             <div className="flex items-center gap-3 pt-2">
               <div className="flex items-center gap-1.5 text-xs text-emerald-400 bg-emerald-950/80 px-3 py-1.5 rounded-lg border border-emerald-500/30">
@@ -133,16 +133,6 @@ export const Footer: React.FC = () => {
                 <span>hello@voxentraglobal.com</span>
               </li>
             </ul>
-
-            <div className="pt-2">
-              <Link
-                href="/admin"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold text-slate-300 border border-slate-700 transition"
-              >
-                <Lock className="w-3.5 h-3.5 text-brand-accent" />
-                <span>Client Lead Portal Login</span>
-              </Link>
-            </div>
           </div>
         </div>
 

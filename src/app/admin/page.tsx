@@ -176,7 +176,7 @@ export default function AdminPage() {
           email: "",
           phone: "",
           industry: "ACA & Health Insurance",
-          leadType: "Live Call Transfers",
+          leadType: "Inbound Calls",
           volume: "100 - 500 Leads / Mo",
           message: "",
         });
