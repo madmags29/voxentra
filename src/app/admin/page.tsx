@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Logo } from "@/components/ui/Logo";
-import { Users, PhoneCall, ShieldCheck, Filter, Download, Plus, Search, CheckCircle2, Clock, AlertCircle, LayoutDashboard, FileText, Settings, LogOut, Lock, KeyRound, ArrowRight, RefreshCw } from "lucide-react";
+import { Users, PhoneCall, ShieldCheck, Filter, Download, Plus, Search, CheckCircle2, Clock, AlertCircle, LayoutDashboard, FileText, Settings, LogOut, Lock, KeyRound, ArrowRight, RefreshCw, Linkedin } from "lucide-react";
 
 interface AdminLead {
   id: string;
@@ -17,6 +17,7 @@ interface AdminLead {
   status: "NEW" | "CONTACTED" | "QUALIFIED" | "CONVERTED";
   consentToken: string;
   date: string;
+  linkedin?: string;
 }
 
 const INITIAL_LEADS: AdminLead[] = [
@@ -32,6 +33,7 @@ const INITIAL_LEADS: AdminLead[] = [
     status: "NEW",
     consentToken: "TCPA-8F92A110",
     date: "10 mins ago",
+    linkedin: "https://linkedin.com/in/marcus-vance-apex",
   },
   {
     id: "VOX-731904",
@@ -45,6 +47,7 @@ const INITIAL_LEADS: AdminLead[] = [
     status: "QUALIFIED",
     consentToken: "TCPA-4B19C992",
     date: "1 hour ago",
+    linkedin: "https://linkedin.com/in/elena-rodriguez-ndr",
   },
   {
     id: "VOX-620411",
@@ -58,6 +61,7 @@ const INITIAL_LEADS: AdminLead[] = [
     status: "CONVERTED",
     consentToken: "TCPA-99A041EF",
     date: "3 hours ago",
+    linkedin: "https://linkedin.com/in/david-sterling-restoration",
   },
 ];
 
@@ -87,6 +91,7 @@ export default function AdminPage() {
     industry: "ACA & Health Insurance",
     leadType: "Inbound Phone Calls",
     volume: "100 - 500 Leads / Mo",
+    linkedin: "",
     message: "",
   });
 
@@ -196,6 +201,7 @@ export default function AdminPage() {
           industry: "ACA & Health Insurance",
           leadType: "Inbound Calls",
           volume: "100 - 500 Leads / Mo",
+          linkedin: "",
           message: "",
         });
         fetchLeads();
@@ -494,7 +500,20 @@ export default function AdminPage() {
                       <tr key={lead.id} className="hover:bg-slate-900/60 transition">
                         <td className="p-3 font-mono font-bold text-brand-accent">{lead.id}</td>
                         <td className="p-3">
-                          <p className="font-bold text-white">{lead.fullName}</p>
+                          <div className="flex items-center gap-1.5">
+                            <p className="font-bold text-white">{lead.fullName}</p>
+                            {lead.linkedin ? (
+                              <a
+                                href={lead.linkedin.startsWith("http") ? lead.linkedin : `https://${lead.linkedin}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-[#0A66C2] hover:text-sky-300 p-0.5 hover:bg-slate-800 rounded transition inline-flex items-center"
+                                title={`View LinkedIn Profile: ${lead.linkedin}`}
+                              >
+                                <Linkedin className="w-3.5 h-3.5 fill-current" />
+                              </a>
+                            ) : null}
+                          </div>
                           <p className="text-[10px] text-slate-400">{lead.phone}</p>
                         </td>
                         <td className="p-3 font-medium">{lead.company}</td>
@@ -651,6 +670,19 @@ export default function AdminPage() {
                         <option value="Inbound Phone Calls">Inbound Phone Calls</option>
                         <option value="Exclusive Digital Leads">Exclusive Digital Leads</option>
                       </select>
+                    </div>
+                  </div>
+
+                  <div className="space-y-1">
+                    <label className="text-slate-400 font-bold uppercase tracking-wider block">LinkedIn Profile / Company URL (Optional)</label>
+                    <div className="relative">
+                      <input
+                        type="url"
+                        placeholder="https://linkedin.com/in/prospect or company"
+                        value={newLead.linkedin}
+                        onChange={(e) => setNewLead({ ...newLead, linkedin: e.target.value })}
+                        className="w-full p-2.5 bg-slate-950 border border-slate-800 rounded-xl text-white outline-none focus:border-brand-accent"
+                      />
                     </div>
                   </div>
 

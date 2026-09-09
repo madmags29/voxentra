@@ -30,6 +30,7 @@ export interface LeadEmailPayload {
   industry?: string;
   leadType?: string;
   monthlyRequirement?: string;
+  linkedin?: string;
   message?: string;
 }
 
@@ -76,6 +77,16 @@ export async function sendLeadNotificationEmail(payload: LeadEmailPayload) {
               <div class="label">Company / Agency</div>
               <div class="value">${payload.company || "N/A"}</div>
             </div>
+            ${
+              payload.linkedin
+                ? `
+              <div class="field">
+                <div class="label">LinkedIn Profile / Company Page</div>
+                <div class="value"><a href="${payload.linkedin.startsWith("http") ? payload.linkedin : `https://${payload.linkedin}`}" target="_blank" style="color: #0A66C2; text-decoration: underline;">${payload.linkedin}</a></div>
+              </div>
+            `
+                : ""
+            }
             <div class="field">
               <div class="label">Target Industry Vertical</div>
               <div class="value">${payload.industry || "General Inquiry"}</div>

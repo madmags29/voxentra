@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { CheckCircle2, ShieldCheck, Phone, Send, Building2, User, Mail, Sparkles } from "lucide-react";
+import { CheckCircle2, ShieldCheck, Phone, Send, Building2, User, Mail, Sparkles, Linkedin } from "lucide-react";
 
 export const LeadCaptureForm: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -15,6 +15,7 @@ export const LeadCaptureForm: React.FC = () => {
     company: "",
     businessEmail: "",
     phoneNumber: "",
+    linkedin: "",
     message: "",
   });
 
@@ -112,6 +113,22 @@ export const LeadCaptureForm: React.FC = () => {
               placeholder="e.g. Apex Health Insurance"
               value={formData.company}
               onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+              className="w-full pl-9 pr-3 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm font-medium text-slate-800 focus:ring-2 focus:ring-brand-primary outline-none"
+            />
+          </div>
+        </div>
+
+        <div>
+          <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+            LinkedIn Profile / Company URL <span className="text-slate-400 font-normal lowercase">(optional)</span>
+          </label>
+          <div className="relative">
+            <Linkedin className="w-4 h-4 text-[#0A66C2] absolute left-3 top-3.5" />
+            <input
+              type="url"
+              placeholder="https://linkedin.com/in/username or company"
+              value={formData.linkedin}
+              onChange={(e) => setFormData({ ...formData, linkedin: e.target.value })}
               className="w-full pl-9 pr-3 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm font-medium text-slate-800 focus:ring-2 focus:ring-brand-primary outline-none"
             />
           </div>

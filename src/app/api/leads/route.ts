@@ -20,6 +20,7 @@ export interface LeadItem {
   consentToken: string;
   date: string;
   createdAt: string;
+  linkedin?: string;
   message?: string;
 }
 
@@ -37,6 +38,7 @@ const DEFAULT_LEADS: LeadItem[] = [
     consentToken: "TCPA-8F92A110",
     date: "10 mins ago",
     createdAt: new Date(Date.now() - 10 * 60 * 1000).toISOString(),
+    linkedin: "https://linkedin.com/in/marcus-vance-apex",
     message: "Need 500 ACA inbound calls per month in FL and TX."
   },
   {
@@ -119,6 +121,7 @@ export async function GET() {
       consentToken: doc.consentToken,
       date: doc.date,
       createdAt: doc.createdAt,
+      linkedin: doc.linkedin || "",
       message: doc.message,
     }));
 
@@ -174,6 +177,7 @@ export async function POST(req: Request) {
       monthlyRequirement,
       volume,
       company,
+      linkedin,
       message,
     } = body;
 
@@ -201,6 +205,7 @@ export async function POST(req: Request) {
       consentToken: `TCPA-${randomHex}`,
       date: "Just now",
       createdAt: new Date().toISOString(),
+      linkedin: linkedin || "",
       message: message || "",
     };
 
@@ -234,6 +239,7 @@ export async function POST(req: Request) {
           industry: newLead.industry,
           leadType: newLead.leadType,
           monthlyRequirement: newLead.volume,
+          linkedin: newLead.linkedin,
           message: newLead.message,
         }),
         new Promise((_, reject) =>
