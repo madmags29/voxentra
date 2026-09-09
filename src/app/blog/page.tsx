@@ -31,7 +31,7 @@ export default function BlogPage() {
             Growth Insights Blogs
           </h1>
           <p className="text-slate-300 text-lg mt-4 max-w-2xl mx-auto">
-            Dedicated insights and strategy guides covering every service vertical: Live Transfers, Inbound Calls, ACA Health, Debt Settlement, Solar, & Compliance.
+            Dedicated insights and strategy guides covering every service vertical: Inbound Calls, Performance Leads, Debt Settlement, Solar, & Compliance.
           </p>
         </div>
       </section>
