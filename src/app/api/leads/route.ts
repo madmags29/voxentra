@@ -27,13 +27,13 @@ const DEFAULT_LEADS: LeadItem[] = [
     email: "marcus@apexhealth.com",
     phone: "(512) 555-0194",
     industry: "ACA & Health Insurance",
-    leadType: "Live Call Transfers",
+    leadType: "Inbound Calls",
     volume: "500 Leads / Mo",
     status: "NEW",
     consentToken: "TCPA-8F92A110",
     date: "10 mins ago",
     createdAt: new Date(Date.now() - 10 * 60 * 1000).toISOString(),
-    message: "Need 500 ACA live transfers per month in FL and TX."
+    message: "Need 500 ACA inbound calls per month in FL and TX."
   },
   {
     id: "VOX-731904",

@@ -12,7 +12,7 @@ export default function ServicesPage() {
       <section className="bg-brand-dark text-white py-16 md:py-20 text-center relative">
         <div className="max-w-4xl mx-auto px-4">
           <span className="text-xs font-bold uppercase tracking-widest text-brand-accent mb-2 block">
-            NATIONWIDE B2B TELEMARKETING & LIVE TRANSFERS
+            NATIONWIDE INBOUND CALLS & EXCLUSIVE LEADS
           </span>
           <h1 className="text-4xl md:text-5xl font-black text-white tracking-tight font-heading">
             Enterprise Lead Vertical Solutions

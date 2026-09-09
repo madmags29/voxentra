@@ -43,7 +43,7 @@ export const LeadRoiCalculator: React.FC = () => {
             ROI & Revenue Estimator
           </div>
           <h3 className="text-2xl font-bold text-brand-dark">Calculate Your Campaign Revenue Potential</h3>
-          <p className="text-sm text-slate-600 mt-1">Estimate your monthly gross revenue and net profit with Voxentra exclusive live transfers.</p>
+          <p className="text-sm text-slate-600 mt-1">Estimate your monthly gross revenue and net profit with Voxentra exclusive inbound calls and leads.</p>
         </div>
         <div className="bg-brand-light p-4 rounded-xl border border-slate-200 text-right min-w-[200px]">
           <span className="text-xs text-slate-500 font-medium block">ESTIMATED COST PER LEAD</span>

@@ -82,7 +82,7 @@ export async function sendLeadNotificationEmail(payload: LeadEmailPayload) {
             </div>
             <div class="field">
               <div class="label">Lead Format</div>
-              <div class="value">${payload.leadType || "Live Transfers"}</div>
+              <div class="value">${payload.leadType || "Inbound Calls"}</div>
             </div>
             <div class="field">
               <div class="label">Monthly Target Volume</div>

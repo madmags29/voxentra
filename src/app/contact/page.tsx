@@ -14,7 +14,7 @@ export default function ContactPage() {
             Talk to Our Enterprise Sales Specialists
           </h1>
           <p className="text-slate-300 text-lg mt-4 max-w-2xl mx-auto">
-            Ready to fuel your call center with high-intent warm live transfers? Contact us today.
+            Ready to fuel your sales pipeline with high-intent inbound calls and exclusive leads? Contact us today.
           </p>
         </div>
       </section>

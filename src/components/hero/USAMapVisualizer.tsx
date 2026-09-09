@@ -44,7 +44,7 @@ export const USAMapVisualizer: React.FC = () => {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
             <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
           </span>
-          <h3 className="text-white font-semibold text-sm tracking-wide">USA LIVE TRANSFER NETWORK</h3>
+          <h3 className="text-white font-semibold text-sm tracking-wide">USA INBOUND & LEAD NETWORK</h3>
         </div>
         <div className="flex items-center gap-2 text-xs text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/30">
           <Activity className="w-3.5 h-3.5 animate-pulse" />

@@ -15,10 +15,10 @@ export const ServicesGrid: React.FC = () => {
             Specialized B2B Lead Verticals
           </div>
           <h2 className="text-3xl md:text-5xl font-black text-brand-dark tracking-tight font-heading">
-            Exclusive Leads & Live Transfers That Drive Revenue
+            Exclusive Leads & Inbound Calls That Drive Revenue
           </h2>
           <p className="text-slate-600 text-base md:text-lg mt-4 leading-relaxed">
-            Every vertical is supported by dedicated US screening specialists, 1-to-1 explicit consent certificates, and customized warm call buffer policies.
+            Every vertical is supported by high-intent targeting, 1-to-1 explicit consent certificates, and real-time CRM ingestion.
           </p>
         </div>
 

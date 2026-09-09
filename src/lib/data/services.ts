@@ -124,8 +124,8 @@ export const SERVICES_DATA: ServiceDetail[] = [
     id: "aca-health-insurance",
     slug: "aca-health-insurance",
     title: "ACA / Health Insurance Marketplace",
-    shortDescription: "Exclusive ACA, Under-65, and Medicare leads & live transfers for licensed health insurance agencies.",
-    heroHeadline: "High-Intent ACA & Health Insurance Live Transfers",
+    shortDescription: "Exclusive ACA, Under-65, and Medicare leads & inbound calls for licensed health insurance agencies.",
+    heroHeadline: "High-Intent ACA & Health Insurance Inbound Leads",
     heroSubheadline: "Fuel your health insurance agents during Open Enrollment and Special Enrollment Periods with pre-qualified ACA buyers.",
     iconName: "HeartPulse",
     badge: "Top Insurance Vertical",
@@ -147,20 +147,20 @@ export const SERVICES_DATA: ServiceDetail[] = [
       },
       {
         title: "OEP & SEP Scale",
-        description: "Deliver thousands of ACA transfers per day to keep hundreds of call center seats producing consistently."
+        description: "Deliver high volumes of qualified ACA inbound leads to keep sales teams producing consistently."
       }
     ],
     processSteps: [
       { step: "01", title: "State Target Mapping", desc: "Define your licensed states and target plan types." },
       { step: "02", title: "Eligibility Screening", desc: "We verify income, state residency, and existing health plan." },
-      { step: "03", title: "Warm Transfer", desc: "Prospect is transferred live with confirmed subsidy interest." },
+      { step: "03", title: "Direct Connect", desc: "Prospect connects directly with confirmed subsidy interest." },
       { step: "04", title: "Policy Close", desc: "Your agent completes enrollment on Healthcare.gov or state portal." }
     ],
     leadSpecs: [
       { label: "Target Audience", value: "Uninsured / ACA Subsidy Eligible" },
       { label: "Screening Criteria", value: "Income, Age, State, Plan Need" },
       { label: "Compliance", value: "CMS & TCPA Compliant" },
-      { label: "Min Order", value: "50 Live Transfers" }
+      { label: "Min Order", value: "50 Leads / Calls" }
     ],
     faq: [
       {
@@ -173,8 +173,8 @@ export const SERVICES_DATA: ServiceDetail[] = [
     id: "final-expense-insurance",
     slug: "final-expense-insurance",
     title: "Final Expense & Burial Insurance",
-    shortDescription: "Exclusive senior leads and live transfers seeking affordable burial and life insurance protection.",
-    heroHeadline: "High-Intent Senior Final Expense Live Transfers",
+    shortDescription: "Exclusive senior leads and inbound calls seeking affordable burial and life insurance protection.",
+    heroHeadline: "High-Intent Senior Final Expense Leads & Calls",
     heroSubheadline: "Connect directly with seniors aged 50-80 looking for immediate whole life and burial insurance coverage.",
     iconName: "ShieldCheck",
     badge: "Senior Market Leader",
@@ -251,13 +251,13 @@ export const SERVICES_DATA: ServiceDetail[] = [
     processSteps: [
       { step: "01", title: "Driver Ad Engagement", desc: "Targeted digital ads highlight rate savings and comparison tools." },
       { step: "02", title: "Driver Profile Capture", desc: "Vehicle make, year, coverage status, and zip code captured." },
-      { step: "03", title: "Real-time Routing", desc: "Warm transfer or exclusive lead pushed straight to your producers." },
+      { step: "03", title: "Real-time Routing", desc: "Inbound call or exclusive lead pushed straight to your producers." },
       { step: "04", title: "Binder Issued", desc: "Agent issues auto binder on the phone." }
     ],
     leadSpecs: [
-      { label: "Lead Types", value: "Live Transfer / Inbound / Real-time Web" },
+      { label: "Lead Types", value: "Inbound Call / Real-time Web Lead" },
       { label: "Filter Options", value: "Current Carrier, Vehicles, Clean Record" },
-      { label: "Delivery", value: "Instant CRM Push / Live Phone" },
+      { label: "Delivery", value: "Instant CRM Push / Inbound Phone" },
       { label: "Min Order", value: "100 Leads" }
     ],
     faq: [
@@ -272,7 +272,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     slug: "ssdi-disability",
     title: "SSDI Disability Insurance",
     shortDescription: "Pre-screened Social Security Disability prospects seeking legal representation and claim assistance.",
-    heroHeadline: "Qualified SSDI Claims Leads & Live Calls for Law Firms",
+    heroHeadline: "Qualified SSDI Claims Leads & Inbound Calls for Law Firms",
     heroSubheadline: "Help disabled individuals secure Social Security Disability benefits with pre-qualified case leads.",
     iconName: "Briefcase",
     badge: "Legal & Advocacy Vertical",
@@ -284,7 +284,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
       "Work Credit Eligibility (5 out of 10 years worked)",
       "Unrepresented Status Verified (No existing attorney)",
       "Initial Application & Denied Claim Filter Options",
-      "Detailed Case Summary Provided Prior to Transfer",
+      "Detailed Case Summary Provided Prior to Routing",
       "100% TCPA Consent Documentation"
     ],
     benefits: [
@@ -300,7 +300,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     processSteps: [
       { step: "01", title: "Intake Screening", desc: "Prospects submit medical condition and work history details." },
       { step: "02", title: "Advocacy Qualification", desc: "We confirm age (<63), doctor treatment, and unrepresented status." },
-      { step: "03", title: "Live Transfer", desc: "Warm connect to your law firm's intake specialist." },
+      { step: "03", title: "Direct Routing", desc: "Direct connect to your law firm's intake specialist." },
       { step: "04", title: "Retainer Sent", desc: "Firm issues digital retainer agreement." }
     ],
     leadSpecs: [
@@ -321,7 +321,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     slug: "debt-settlement",
     title: "Debt Settlement & Relief",
     shortDescription: "Consumers with $10,000+ unsecured credit card and personal loan debt looking for relief programs.",
-    heroHeadline: "High-Intent Debt Relief Live Transfers & Inbound Calls",
+    heroHeadline: "High-Intent Debt Relief Inbound Calls & Exclusive Leads",
     heroSubheadline: "Connect directly with consumers carrying $10k+ in unsecured debt looking to reduce their monthly obligations.",
     iconName: "DollarSign",
     badge: "High ROI Finance Vertical",
@@ -333,7 +333,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
       "Financial Hardship (Job loss, medical, divorce) Confirmed",
       "Exclude Active Bankruptcy & Mortgage-Only Debt",
       "Verify Credit Card / Personal Loan Debt Breakdown",
-      "Instant CRM Integration & Live Warm Transfer",
+      "Instant CRM Integration & Real-Time Call Routing",
       "Full TCPA & FTC Compliance Monitoring"
     ],
     benefits: [
@@ -349,19 +349,19 @@ export const SERVICES_DATA: ServiceDetail[] = [
     processSteps: [
       { step: "01", title: "Financial Hardship Screening", desc: "Consumer completes debt intake evaluation." },
       { step: "02", title: "Debt Verification", desc: "We verify total unsecured debt meets $10,000+ requirement." },
-      { step: "03", title: "Live Warm Transfer", desc: "Consumer is connected directly to your debt counselor." },
+      { step: "03", title: "Direct Connection", desc: "Consumer is connected directly to your debt counselor." },
       { step: "04", title: "Enrollment Agreement", desc: "Counselor reviews debt program and executes agreement." }
     ],
     leadSpecs: [
       { label: "Min Debt Amount", value: "$10,000+ Unsecured" },
       { label: "Debt Types", value: "Credit Cards, Personal Loans, Medical" },
-      { label: "Transfer Buffer", value: "90 Seconds" },
-      { label: "Min Order", value: "50 Transfers" }
+      { label: "Call Buffer", value: "90 Seconds" },
+      { label: "Min Order", value: "50 Inbound Calls" }
     ],
     faq: [
       {
         q: "Do you filter out prospects currently in bankruptcy?",
-        a: "Yes! Prospects who have filed active bankruptcy or are in loan modification are filtered out prior to live transfer."
+        a: "Yes! Prospects who have filed active bankruptcy or are in loan modification are filtered out prior to call routing."
       }
     ]
   },

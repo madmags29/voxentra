@@ -373,7 +373,7 @@ export default function AdminPage() {
             </div>
 
             <div className="bg-slate-950 p-5 rounded-2xl border border-slate-800">
-              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Live Transfers Routed</span>
+              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Inbound Calls Routed</span>
               <p className="text-3xl font-black text-brand-accent font-mono mt-1">842</p>
               <span className="text-[10px] text-slate-400 block mt-1">Avg connect: 2.4s</span>
             </div>

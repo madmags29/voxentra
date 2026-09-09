@@ -13,12 +13,12 @@ export default function TermsPage() {
 
         <h2 className="text-xl font-bold text-slate-800 mt-8 mb-2">1. Lead Exclusivity & SLA</h2>
         <p className="text-sm text-slate-600 leading-relaxed">
-          Voxentra guarantees that exclusive live transfers and leads purchased under exclusive agreements are routed solely to the contracted buyer entity.
+          Voxentra guarantees that exclusive inbound calls and leads purchased under exclusive agreements are routed solely to the contracted buyer entity.
         </p>
 
         <h2 className="text-xl font-bold text-slate-800 mt-8 mb-2">2. Call Buffer & Credit Policy</h2>
         <p className="text-sm text-slate-600 leading-relaxed">
-          Warm live call transfers include a standard 60-second to 120-second duration buffer depending on campaign specifications. Calls disconnecting prior to the agreed buffer duration are eligible for unbilled status or replacement credit.
+          Inbound pay-per-call campaigns include a standard 60-second to 120-second duration buffer depending on campaign specifications. Calls disconnecting prior to the agreed buffer duration are eligible for unbilled status or replacement credit.
         </p>
 
         <h2 className="text-xl font-bold text-slate-800 mt-8 mb-2">3. Service Disclaimer</h2>

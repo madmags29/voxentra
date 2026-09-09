@@ -34,7 +34,7 @@ export const INDUSTRIES_DATA: IndustryItem[] = [
     iconName: "DollarSign",
     leadVolumePerMonth: "80,000+ Calls",
     avgConversion: "31%",
-    popularServices: ["Debt Settlement", "Live Transfers", "Inbound Calls"]
+    popularServices: ["Debt Settlement", "Exclusive Leads", "Inbound Calls"]
   },
   {
     id: "home-services",
@@ -52,7 +52,7 @@ export const INDUSTRIES_DATA: IndustryItem[] = [
     iconName: "Sun",
     leadVolumePerMonth: "60,000+ Appointments",
     avgConversion: "29%",
-    popularServices: ["Home Services & Solar", "Live Transfers", "Affiliate Network"]
+    popularServices: ["Home Services & Solar", "Pay-Per-Call", "Affiliate Network"]
   },
   {
     id: "mortgage",
@@ -61,7 +61,7 @@ export const INDUSTRIES_DATA: IndustryItem[] = [
     iconName: "Key",
     leadVolumePerMonth: "40,000+ Leads",
     avgConversion: "27%",
-    popularServices: ["Outbound Telemarketing", "Inbound Calls", "Live Transfers"]
+    popularServices: ["Outbound Telemarketing", "Inbound Calls", "Exclusive Leads"]
   },
   {
     id: "legal",
@@ -70,7 +70,7 @@ export const INDUSTRIES_DATA: IndustryItem[] = [
     iconName: "Scale",
     leadVolumePerMonth: "25,000+ Retainers",
     avgConversion: "41%",
-    popularServices: ["SSDI Disability", "Live Transfers", "Inbound Calls"]
+    popularServices: ["SSDI Disability", "Exclusive Retainers", "Inbound Calls"]
   },
   {
     id: "automotive",

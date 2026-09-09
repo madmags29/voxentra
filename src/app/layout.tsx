@@ -6,14 +6,14 @@ import { Footer } from "@/components/layout/Footer";
 import { generateOrganizationSchema, generateWebSiteSearchSchema } from "@/lib/seo/schema";
 
 export const metadata: Metadata = {
-  title: "Voxentra Solutions | Premium Live Transfers & Exclusive B2B Leads Across USA",
-  description: "Voxentra Solutions connects US businesses with high-intent qualified buyers through 100% TCPA-compliant live call transfers, inbound calls, telemarketing, and exclusive lead generation.",
+  title: "Voxentra Solutions | High-Intent Inbound Calls & Exclusive B2B Leads Across USA",
+  description: "Voxentra Solutions connects US businesses with high-intent qualified buyers through 100% TCPA-compliant inbound calls, pay-per-call solutions, and exclusive lead generation.",
   keywords: [
     "Voxentra Solutions",
-    "live call transfers",
+    "inbound calls",
     "exclusive B2B leads",
     "telemarketing company USA",
-    "ACA health insurance live transfers",
+    "ACA health insurance leads",
     "debt settlement calls",
     "water damage restoration leads",
     "final expense senior leads",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.voxentraglobal.com"),
   openGraph: {
     title: "Voxentra Solutions | Connecting Businesses with High-Intent Customers",
-    description: "Premium Live Transfers & Exclusive Leads Across the USA. 100% TCPA 1-to-1 Consent Verified.",
+    description: "High-Intent Inbound Calls & Exclusive Leads Across the USA. 100% TCPA 1-to-1 Consent Verified.",
     url: "https://www.voxentraglobal.com",
     siteName: "Voxentra Solutions",
     locale: "en_US",
@@ -33,8 +33,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Voxentra Solutions | Premium Live Transfers & Exclusive Leads",
-    description: "High-converting B2B telemarketing, live call transfers, and exclusive leads across the USA.",
+    title: "Voxentra Solutions | High-Intent Inbound Calls & Exclusive Leads",
+    description: "High-converting pay-per-call marketing, inbound calls, and exclusive leads across the USA.",
   },
   robots: {
     index: true,
