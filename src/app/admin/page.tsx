@@ -285,12 +285,6 @@ export default function AdminPage() {
             </button>
           </form>
 
-          {/* Quick Demo Helper Hint */}
-          <div className="p-3 bg-slate-950/80 rounded-xl border border-slate-800 text-[11px] text-slate-400 text-center space-y-1">
-            <p className="font-semibold text-slate-300">🔑 Demo Access Credentials:</p>
-            <p className="font-mono text-brand-accent">Email: admin@voxentra.com | Password: voxentra2026</p>
-          </div>
-
           <div className="pt-2 text-center">
             <Link href="/" className="text-xs text-slate-500 hover:text-slate-300 transition">
               ← Return to Main Website
