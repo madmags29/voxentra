@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Logo } from "@/components/ui/Logo";
-import { Users, PhoneCall, ShieldCheck, Filter, Download, Plus, Search, CheckCircle2, Clock, AlertCircle, LayoutDashboard, FileText, Settings, LogOut, Lock, KeyRound, ArrowRight } from "lucide-react";
+import { Users, PhoneCall, ShieldCheck, Filter, Download, Plus, Search, CheckCircle2, Clock, AlertCircle, LayoutDashboard, FileText, Settings, LogOut, Lock, KeyRound, ArrowRight, RefreshCw } from "lucide-react";
 
 interface AdminLead {
   id: string;
@@ -27,7 +27,7 @@ const INITIAL_LEADS: AdminLead[] = [
     email: "marcus@apexhealth.com",
     phone: "(512) 555-0194",
     industry: "ACA & Health Insurance",
-    leadType: "Live Call Transfers",
+    leadType: "Inbound Phone Calls",
     volume: "500 Leads / Mo",
     status: "NEW",
     consentToken: "TCPA-8F92A110",
@@ -53,7 +53,7 @@ const INITIAL_LEADS: AdminLead[] = [
     email: "david@restorationpro.com",
     phone: "(216) 555-4012",
     industry: "24/7 Water Damage",
-    leadType: "Live Call Transfers",
+    leadType: "Inbound Calls (Pay-Per-Call)",
     volume: "250 Calls / Mo",
     status: "CONVERTED",
     consentToken: "TCPA-99A041EF",
@@ -68,6 +68,7 @@ export default function AdminPage() {
   const [password, setPassword] = useState("");
   const [loginError, setLoginError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [isRefreshing, setIsRefreshing] = useState(false);
 
   const [leads, setLeads] = useState<AdminLead[]>(INITIAL_LEADS);
   const [searchTerm, setSearchTerm] = useState("");
@@ -90,9 +91,16 @@ export default function AdminPage() {
   });
 
   const fetchLeads = async () => {
+    setIsRefreshing(true);
     try {
       let apiLeads: AdminLead[] = [];
-      const res = await fetch("/api/leads");
+      const res = await fetch("/api/leads", {
+        cache: "no-store",
+        headers: {
+          "Cache-Control": "no-cache, no-store, must-revalidate",
+          "Pragma": "no-cache",
+        },
+      });
       if (res.ok) {
         const data = await res.json();
         if (data.success && Array.isArray(data.leads)) {
@@ -108,7 +116,7 @@ export default function AdminPage() {
       }
 
       // Merge API leads and local leads without duplicates by ID
-      const combined = [...localLeads, ...apiLeads];
+      const combined = [...apiLeads, ...localLeads, ...INITIAL_LEADS];
       const uniqueLeads = Array.from(new Map(combined.map((item) => [item.id, item])).values());
 
       if (uniqueLeads.length > 0) {
@@ -116,6 +124,8 @@ export default function AdminPage() {
       }
     } catch (err) {
       console.error("Error fetching live leads:", err);
+    } finally {
+      setIsRefreshing(false);
     }
   };
 
@@ -127,6 +137,14 @@ export default function AdminPage() {
       fetchLeads();
     }
   }, []);
+
+  useEffect(() => {
+    if (!isAuthenticated) return;
+    const interval = setInterval(() => {
+      fetchLeads();
+    }, 15000);
+    return () => clearInterval(interval);
+  }, [isAuthenticated]);
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
@@ -428,6 +446,16 @@ export default function AdminPage() {
                     <option value="QUALIFIED">QUALIFIED</option>
                     <option value="CONVERTED">CONVERTED</option>
                   </select>
+
+                  <button
+                    onClick={fetchLeads}
+                    disabled={isRefreshing}
+                    className="flex items-center gap-2 px-3 py-2 bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-700 rounded-xl text-xs font-bold transition"
+                    title="Refresh leads from database"
+                  >
+                    <RefreshCw className={`w-3.5 h-3.5 ${isRefreshing ? "animate-spin text-brand-accent" : ""}`} />
+                    <span>{isRefreshing ? "Refreshing..." : "Refresh"}</span>
+                  </button>
 
                   <button
                     onClick={() => setShowAddModal(true)}

@@ -1,7 +1,11 @@
 import { NextResponse } from "next/server";
 import { sendLeadNotificationEmail } from "@/lib/email";
+import { getDatabase } from "@/lib/db";
 import fs from "fs";
 import path from "path";
+
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 export interface LeadItem {
   id: string;
@@ -57,7 +61,7 @@ const DEFAULT_LEADS: LeadItem[] = [
     email: "david@restorationpro.com",
     phone: "(216) 555-4012",
     industry: "24/7 Water Damage",
-    leadType: "Live Call Transfers",
+    leadType: "Inbound Calls",
     volume: "250 Calls / Mo",
     status: "CONVERTED",
     consentToken: "TCPA-99A041EF",
@@ -69,7 +73,7 @@ const DEFAULT_LEADS: LeadItem[] = [
 
 const LEADS_FILE = path.join(process.env.TMPDIR || "/tmp", "voxentra_leads.json");
 
-function getStoredLeads(): LeadItem[] {
+function getStoredFileLeads(): LeadItem[] {
   try {
     if (fs.existsSync(LEADS_FILE)) {
       const data = fs.readFileSync(LEADS_FILE, "utf-8");
@@ -84,7 +88,7 @@ function getStoredLeads(): LeadItem[] {
   return DEFAULT_LEADS;
 }
 
-function saveStoredLeads(leads: LeadItem[]) {
+function saveStoredFileLeads(leads: LeadItem[]) {
   try {
     fs.writeFileSync(LEADS_FILE, JSON.stringify(leads, null, 2), "utf-8");
   } catch (err) {
@@ -93,17 +97,85 @@ function saveStoredLeads(leads: LeadItem[]) {
 }
 
 export async function GET() {
-  const leads = getStoredLeads();
-  return NextResponse.json({
-    success: true,
-    leads,
-  });
+  try {
+    const db = await getDatabase();
+    const leadsCollection = db.collection<LeadItem>("leads");
+    const dbLeads = await leadsCollection
+      .find({})
+      .sort({ createdAt: -1 })
+      .toArray();
+
+    // Map Mongo documents and merge with defaults if DB has few items
+    const formattedDbLeads: LeadItem[] = dbLeads.map((doc) => ({
+      id: doc.id,
+      fullName: doc.fullName,
+      company: doc.company,
+      email: doc.email,
+      phone: doc.phone,
+      industry: doc.industry,
+      leadType: doc.leadType,
+      volume: doc.volume,
+      status: doc.status || "NEW",
+      consentToken: doc.consentToken,
+      date: doc.date,
+      createdAt: doc.createdAt,
+      message: doc.message,
+    }));
+
+    // Combine DB leads and fallback defaults without ID duplicate
+    const combined = [...formattedDbLeads, ...DEFAULT_LEADS];
+    const uniqueLeads = Array.from(new Map(combined.map((item) => [item.id, item])).values());
+
+    return NextResponse.json(
+      {
+        success: true,
+        source: "database",
+        leads: uniqueLeads,
+      },
+      {
+        headers: {
+          "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+          Pragma: "no-cache",
+          Expires: "0",
+        },
+      }
+    );
+  } catch (dbErr) {
+    console.warn("MongoDB connection fallback to file storage:", dbErr);
+    const fileLeads = getStoredFileLeads();
+    return NextResponse.json(
+      {
+        success: true,
+        source: "file_fallback",
+        leads: fileLeads,
+      },
+      {
+        headers: {
+          "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+          Pragma: "no-cache",
+          Expires: "0",
+        },
+      }
+    );
+  }
 }
 
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { fullName, businessEmail, email, phoneNumber, phone, industry, leadType, monthlyRequirement, volume, company, message } = body;
+    const {
+      fullName,
+      businessEmail,
+      email,
+      phoneNumber,
+      phone,
+      industry,
+      leadType,
+      monthlyRequirement,
+      volume,
+      company,
+      message,
+    } = body;
 
     const finalEmail = businessEmail || email;
     const finalPhone = phoneNumber || phone;
@@ -123,7 +195,7 @@ export async function POST(req: Request) {
       phone: finalPhone,
       company: company || "N/A",
       industry: industry || "General Inquiry",
-      leadType: leadType || "Inbound Phone Calls",
+      leadType: leadType || "Inbound Calls",
       volume: monthlyRequirement || volume || "100 - 500 Leads / Mo",
       status: "NEW",
       consentToken: `TCPA-${randomHex}`,
@@ -132,28 +204,45 @@ export async function POST(req: Request) {
       message: message || "",
     };
 
-    const currentLeads = getStoredLeads();
-    const updatedLeads = [newLead, ...currentLeads];
-    saveStoredLeads(updatedLeads);
-
-    console.log("New Lead Enquiry Recorded in System:", newLead);
-
-    // Await SMTP email notification so Vercel keeps container active until email is sent
+    // 1. Persistent Storage in MongoDB Atlas
     try {
-      await sendLeadNotificationEmail({
-        leadId: newLead.id,
-        fullName: newLead.fullName,
-        businessEmail: newLead.email,
-        phoneNumber: newLead.phone,
-        company: newLead.company,
-        industry: newLead.industry,
-        leadType: newLead.leadType,
-        monthlyRequirement: newLead.volume,
-        message: newLead.message,
-      });
+      const db = await getDatabase();
+      const leadsCollection = db.collection<LeadItem>("leads");
+      await leadsCollection.insertOne({ ...newLead });
+      console.log("New Lead successfully inserted into MongoDB Atlas:", newLead.id);
+    } catch (mongoErr) {
+      console.error("MongoDB Insert Error:", mongoErr);
+    }
+
+    // 2. Backup File Storage
+    try {
+      const currentLeads = getStoredFileLeads();
+      saveStoredFileLeads([newLead, ...currentLeads]);
+    } catch (fileErr) {
+      console.error("File storage backup error:", fileErr);
+    }
+
+    // 3. SMTP Email Notification (Safely bounded with 4s timeout)
+    try {
+      await Promise.race([
+        sendLeadNotificationEmail({
+          leadId: newLead.id,
+          fullName: newLead.fullName,
+          businessEmail: newLead.email,
+          phoneNumber: newLead.phone,
+          company: newLead.company,
+          industry: newLead.industry,
+          leadType: newLead.leadType,
+          monthlyRequirement: newLead.volume,
+          message: newLead.message,
+        }),
+        new Promise((_, reject) =>
+          setTimeout(() => reject(new Error("SMTP delivery timeout")), 4000)
+        ),
+      ]);
       console.log("SMTP Email successfully sent to hello@voxentraglobal.com");
     } catch (emailErr) {
-      console.error("SMTP Email Dispatch Error:", emailErr);
+      console.warn("SMTP Email Dispatch warning (proceeding with DB response):", emailErr);
     }
 
     return NextResponse.json(
@@ -161,7 +250,6 @@ export async function POST(req: Request) {
         success: true,
         message: "Lead inquiry submitted successfully.",
         lead: newLead,
-        leads: updatedLeads,
       },
       { status: 201 }
     );

@@ -9,7 +9,7 @@ export const LeadCaptureForm: React.FC = () => {
 
   const [formData, setFormData] = useState({
     industry: "ACA & Health Insurance",
-    leadType: "Live Call Transfers",
+    leadType: "Inbound Calls",
     monthlyRequirement: "100 - 500 Leads / Mo",
     fullName: "",
     company: "",
@@ -35,8 +35,10 @@ export const LeadCaptureForm: React.FC = () => {
         } catch (e) {
           console.error("LocalStorage save error:", e);
         }
+        setIsSubmitted(true);
+      } else {
+        alert(data.error || "Failed to submit lead inquiry. Please try again.");
       }
-      setIsSubmitted(true);
     } catch {
       setIsSubmitted(true);
     } finally {
