@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Logo } from "@/components/ui/Logo";
-import { Users, PhoneCall, ShieldCheck, Filter, Download, Plus, Search, CheckCircle2, Clock, AlertCircle, LayoutDashboard, FileText, Settings, LogOut, Lock, KeyRound, ArrowRight, RefreshCw, Linkedin } from "lucide-react";
+import { Users, PhoneCall, ShieldCheck, Filter, Download, Plus, Search, CheckCircle2, Clock, AlertCircle, LayoutDashboard, FileText, Settings, LogOut, Lock, KeyRound, ArrowRight, RefreshCw, Linkedin, Calendar } from "lucide-react";
 
 interface AdminLead {
   id: string;
@@ -17,7 +17,28 @@ interface AdminLead {
   status: "NEW" | "CONTACTED" | "QUALIFIED" | "CONVERTED";
   consentToken: string;
   date: string;
+  createdAt?: string;
   linkedin?: string;
+}
+
+function formatLeadDate(dateStr?: string, createdAt?: string): string {
+  if (createdAt) {
+    try {
+      const d = new Date(createdAt);
+      if (!isNaN(d.getTime())) {
+        return d.toLocaleDateString("en-US", {
+          month: "short",
+          day: "numeric",
+          year: "numeric",
+          hour: "2-digit",
+          minute: "2-digit",
+        });
+      }
+    } catch {
+      // fallback
+    }
+  }
+  return dateStr || "Recent";
 }
 
 const INITIAL_LEADS: AdminLead[] = [
@@ -33,6 +54,7 @@ const INITIAL_LEADS: AdminLead[] = [
     status: "NEW",
     consentToken: "TCPA-8F92A110",
     date: "10 mins ago",
+    createdAt: new Date(Date.now() - 10 * 60 * 1000).toISOString(),
     linkedin: "https://linkedin.com/in/marcus-vance-apex",
   },
   {
@@ -47,6 +69,7 @@ const INITIAL_LEADS: AdminLead[] = [
     status: "QUALIFIED",
     consentToken: "TCPA-4B19C992",
     date: "1 hour ago",
+    createdAt: new Date(Date.now() - 60 * 60 * 1000).toISOString(),
     linkedin: "https://linkedin.com/in/elena-rodriguez-ndr",
   },
   {
@@ -61,6 +84,7 @@ const INITIAL_LEADS: AdminLead[] = [
     status: "CONVERTED",
     consentToken: "TCPA-99A041EF",
     date: "3 hours ago",
+    createdAt: new Date(Date.now() - 180 * 60 * 1000).toISOString(),
     linkedin: "https://linkedin.com/in/david-sterling-restoration",
   },
 ];
@@ -224,6 +248,35 @@ export default function AdminPage() {
     const matchesStatus = statusFilter === "ALL" || lead.status === statusFilter;
     return matchesSearch && matchesStatus;
   });
+
+  const handleExportCSV = () => {
+    if (filteredLeads.length === 0) {
+      alert("No leads available to export.");
+      return;
+    }
+    const headers = ["Ref ID", "Date", "Full Name", "Company", "Email", "Phone", "LinkedIn", "Industry", "Format", "Status", "TCPA Consent Token"];
+    const rows = filteredLeads.map((lead) => [
+      `"${lead.id}"`,
+      `"${formatLeadDate(lead.date, lead.createdAt)}"`,
+      `"${lead.fullName.replace(/"/g, '""')}"`,
+      `"${lead.company.replace(/"/g, '""')}"`,
+      `"${lead.email}"`,
+      `"${lead.phone}"`,
+      `"${lead.linkedin || ""}"`,
+      `"${lead.industry.replace(/"/g, '""')}"`,
+      `"${lead.leadType.replace(/"/g, '""')}"`,
+      `"${lead.status}"`,
+      `"${lead.consentToken}"`,
+    ]);
+    const csvContent = "data:text/csv;charset=utf-8," + [headers.join(","), ...rows.map((e) => e.join(","))].join("\n");
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", `voxentra_leads_${new Date().toISOString().split("T")[0]}.csv`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   if (!isClient) return null;
 
@@ -472,8 +525,9 @@ export default function AdminPage() {
                   </button>
 
                   <button
-                    onClick={() => alert("Exporting CSV report...")}
+                    onClick={handleExportCSV}
                     className="flex items-center gap-2 px-3 py-2 bg-brand-primary hover:bg-brand-primaryHover text-white rounded-xl text-xs font-bold shadow transition"
+                    title="Export filtered leads to CSV spreadsheet"
                   >
                     <Download className="w-3.5 h-3.5" />
                     <span>Export CSV</span>
@@ -487,6 +541,7 @@ export default function AdminPage() {
                   <thead className="bg-slate-900 text-slate-400 uppercase font-mono border-b border-slate-800">
                     <tr>
                       <th className="p-3">Ref ID</th>
+                      <th className="p-3">Date</th>
                       <th className="p-3">Prospect</th>
                       <th className="p-3">Company</th>
                       <th className="p-3">Industry Vertical</th>
@@ -498,7 +553,13 @@ export default function AdminPage() {
                   <tbody className="divide-y divide-slate-800/60">
                     {filteredLeads.map((lead) => (
                       <tr key={lead.id} className="hover:bg-slate-900/60 transition">
-                        <td className="p-3 font-mono font-bold text-brand-accent">{lead.id}</td>
+                        <td className="p-3 font-mono font-bold text-brand-accent whitespace-nowrap">{lead.id}</td>
+                        <td className="p-3 whitespace-nowrap">
+                          <div className="flex items-center gap-1.5 text-slate-300 font-medium">
+                            <Calendar className="w-3.5 h-3.5 text-brand-accent/80 flex-shrink-0" />
+                            <span className="text-xs font-medium text-slate-200">{formatLeadDate(lead.date, lead.createdAt)}</span>
+                          </div>
+                        </td>
                         <td className="p-3">
                           <div className="flex items-center gap-1.5">
                             <p className="font-bold text-white">{lead.fullName}</p>
