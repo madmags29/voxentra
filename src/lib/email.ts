@@ -32,9 +32,14 @@ export interface LeadEmailPayload {
   monthlyRequirement?: string;
   linkedin?: string;
   message?: string;
+  zipCode?: string;
+  serviceNeeded?: string;
+  leadSource?: string;
 }
 
 export async function sendLeadNotificationEmail(payload: LeadEmailPayload) {
+  const isLandingLead = Boolean(payload.serviceNeeded || payload.zipCode || payload.leadSource);
+
   const htmlContent = `
     <!DOCTYPE html>
     <html>
@@ -51,32 +56,75 @@ export async function sendLeadNotificationEmail(payload: LeadEmailPayload) {
           .value { font-size: 15px; font-weight: 600; color: #0f172a; margin-top: 4px; }
           .footer { background: #f8fafc; padding: 16px; text-align: center; font-size: 12px; color: #64748b; border-top: 1px solid #e2e8f0; }
           .badge { display: inline-block; background: #10B981; color: #ffffff; padding: 4px 10px; border-radius: 9999px; font-size: 11px; font-weight: bold; }
+          .highlight { background: #eff6ff; border-left: 4px solid #0F4C81; padding: 12px 16px; border-radius: 6px; margin-bottom: 16px; }
         </style>
       </head>
       <body>
         <div class="container">
           <div class="header">
-            <span class="badge">NEW INCOMING B2B LEAD</span>
-            <h1 style="margin-top: 10px;">Voxentra Lead Notification</h1>
+            <span class="badge">${isLandingLead ? "🔥 NEW LANDING PAGE QUOTE REQUEST" : "NEW INCOMING B2B LEAD"}</span>
+            <h1 style="margin-top: 10px;">${payload.leadSource || "Voxentra Lead Notification"}</h1>
             <p style="margin: 4px 0 0 0; font-size: 13px; opacity: 0.9;">Lead Ref ID: ${payload.leadId}</p>
           </div>
           <div class="content">
+            ${
+              payload.serviceNeeded
+                ? `
+              <div class="highlight">
+                <div class="label" style="color: #1d4ed8;">Requested Service</div>
+                <div class="value" style="font-size: 18px; color: #1e40af;">${payload.serviceNeeded}</div>
+                ${payload.zipCode ? `<div style="font-size: 13px; color: #475569; margin-top: 4px;">Service ZIP Code: <strong>${payload.zipCode}</strong></div>` : ""}
+              </div>
+            `
+                : ""
+            }
+
             <div class="field">
               <div class="label">Full Name</div>
               <div class="value">${payload.fullName}</div>
             </div>
             <div class="field">
-              <div class="label">Business Email</div>
+              <div class="label">Direct Phone</div>
+              <div class="value"><a href="tel:${payload.phoneNumber}" style="color: #10B981; font-size: 16px; font-weight: bold;">${payload.phoneNumber}</a></div>
+            </div>
+            <div class="field">
+              <div class="label">Email Address</div>
               <div class="value"><a href="mailto:${payload.businessEmail}" style="color: #0F4C81;">${payload.businessEmail}</a></div>
             </div>
+            ${
+              payload.zipCode && !payload.serviceNeeded
+                ? `
+              <div class="field">
+                <div class="label">ZIP Code</div>
+                <div class="value">${payload.zipCode}</div>
+              </div>
+            `
+                : ""
+            }
             <div class="field">
-              <div class="label">Direct Phone</div>
-              <div class="value"><a href="tel:${payload.phoneNumber}" style="color: #10B981;">${payload.phoneNumber}</a></div>
+              <div class="label">Industry / Vertical</div>
+              <div class="value">${payload.industry || "Home Services"}</div>
             </div>
-            <div class="field">
-              <div class="label">Company / Agency</div>
-              <div class="value">${payload.company || "N/A"}</div>
-            </div>
+            ${
+              payload.company && payload.company !== "N/A"
+                ? `
+              <div class="field">
+                <div class="label">Company / Property</div>
+                <div class="value">${payload.company}</div>
+              </div>
+            `
+                : ""
+            }
+            ${
+              payload.leadSource
+                ? `
+              <div class="field">
+                <div class="label">Lead Source</div>
+                <div class="value">${payload.leadSource}</div>
+              </div>
+            `
+                : ""
+            }
             ${
               payload.linkedin
                 ? `
@@ -87,24 +135,12 @@ export async function sendLeadNotificationEmail(payload: LeadEmailPayload) {
             `
                 : ""
             }
-            <div class="field">
-              <div class="label">Target Industry Vertical</div>
-              <div class="value">${payload.industry || "General Inquiry"}</div>
-            </div>
-            <div class="field">
-              <div class="label">Lead Format</div>
-              <div class="value">${payload.leadType || "Inbound Calls"}</div>
-            </div>
-            <div class="field">
-              <div class="label">Monthly Target Volume</div>
-              <div class="value">${payload.monthlyRequirement || "Standard"}</div>
-            </div>
             ${
               payload.message
                 ? `
               <div class="field">
-                <div class="label">Campaign Requirements / Notes</div>
-                <div class="value" style="font-weight: normal; background: #f8fafc; padding: 10px; border-radius: 8px; border: 1px solid #e2e8f0;">
+                <div class="label">Project Details / Message</div>
+                <div class="value" style="font-weight: normal; background: #f8fafc; padding: 12px; border-radius: 8px; border: 1px solid #e2e8f0; line-height: 1.5;">
                   ${payload.message}
                 </div>
               </div>
@@ -113,17 +149,21 @@ export async function sendLeadNotificationEmail(payload: LeadEmailPayload) {
             }
           </div>
           <div class="footer">
-            Sent automatically from Voxentra Lead Generation Platform to hello@voxentraglobal.com
+            Sent automatically to hello@voxentraglobal.com &bull; Voxentra Instant Dispatch System
           </div>
         </div>
       </body>
     </html>
   `;
 
+  const subject = isLandingLead
+    ? `⚡ Free Quote Request: ${payload.serviceNeeded || payload.industry || "Home Services"} - ${payload.fullName} (${payload.zipCode ? `ZIP ${payload.zipCode}` : "Quote"})`
+    : `🔥 New B2B Lead (${payload.industry || "General"}) - ${payload.fullName} (${payload.company || "Agency"})`;
+
   return await transporter.sendMail({
     from: `Voxentra Lead Engine <hello@voxentraglobal.com>`,
     to: "hello@voxentraglobal.com",
-    subject: `🔥 New B2B Lead (${payload.industry || "General"}) - ${payload.fullName} (${payload.company || "Agency"})`,
+    subject,
     html: htmlContent,
   });
 }

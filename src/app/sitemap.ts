@@ -44,5 +44,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...staticPages, ...servicePages, ...blogPages];
+  // Dedicated High-Intent Landing Pages
+  const landingPages: MetadataRoute.Sitemap = [
+    "/hvac",
+    "/plumbing",
+    "/roofing",
+    "/windows",
+    "/bathroom",
+    "/water-damage",
+    "/pest-control",
+  ].map((route) => ({
+    url: `${baseUrl}${route}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly",
+    priority: 0.95,
+  }));
+
+  return [...staticPages, ...landingPages, ...servicePages, ...blogPages];
 }

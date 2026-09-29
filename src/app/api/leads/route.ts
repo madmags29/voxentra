@@ -22,6 +22,9 @@ export interface LeadItem {
   createdAt: string;
   linkedin?: string;
   message?: string;
+  zipCode?: string;
+  serviceNeeded?: string;
+  leadSource?: string;
 }
 
 const DEFAULT_LEADS: LeadItem[] = [
@@ -179,10 +182,17 @@ export async function POST(req: Request) {
       company,
       linkedin,
       message,
+      zipCode,
+      zip,
+      serviceNeeded,
+      service,
+      leadSource,
     } = body;
 
     const finalEmail = businessEmail || email;
     const finalPhone = phoneNumber || phone;
+    const finalZip = zipCode || zip || "";
+    const finalService = serviceNeeded || service || "";
 
     if (!fullName || !finalEmail || !finalPhone) {
       return NextResponse.json(
@@ -198,15 +208,18 @@ export async function POST(req: Request) {
       email: finalEmail,
       phone: finalPhone,
       company: company || "N/A",
-      industry: industry || "General Inquiry",
-      leadType: leadType || "Inbound Calls",
-      volume: monthlyRequirement || volume || "100 - 500 Leads / Mo",
+      industry: industry || (finalService ? `Home Services - ${finalService}` : "General Inquiry"),
+      leadType: leadType || (finalService ? "Landing Page Free Quote Form" : "Inbound Calls"),
+      volume: monthlyRequirement || volume || (finalZip ? `ZIP: ${finalZip}` : "Standard"),
       status: "NEW",
       consentToken: `TCPA-${randomHex}`,
       date: "Just now",
       createdAt: new Date().toISOString(),
       linkedin: linkedin || "",
       message: message || "",
+      zipCode: finalZip,
+      serviceNeeded: finalService,
+      leadSource: leadSource || (finalService ? `${finalService} Landing Page` : "Website Lead Form"),
     };
 
     // 1. Persistent Storage in MongoDB Atlas
@@ -241,6 +254,9 @@ export async function POST(req: Request) {
           monthlyRequirement: newLead.volume,
           linkedin: newLead.linkedin,
           message: newLead.message,
+          zipCode: newLead.zipCode,
+          serviceNeeded: newLead.serviceNeeded,
+          leadSource: newLead.leadSource,
         }),
         new Promise((_, reject) =>
           setTimeout(() => reject(new Error("SMTP delivery timeout")), 4000)

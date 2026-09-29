@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
+import { AppShell } from "@/components/layout/AppShell";
 import { generateOrganizationSchema, generateWebSiteSearchSchema } from "@/lib/seo/schema";
 
 export const metadata: Metadata = {
@@ -101,9 +100,7 @@ export default function RootLayout({
         </Script>
       </head>
       <body className="min-h-screen flex flex-col bg-white text-slate-900 selection:bg-brand-primary selection:text-white" suppressHydrationWarning>
-        <Header />
-        <main className="flex-grow pt-24 md:pt-28">{children}</main>
-        <Footer />
+        <AppShell>{children}</AppShell>
       </body>
     </html>
   );
